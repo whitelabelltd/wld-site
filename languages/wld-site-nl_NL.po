@@ -1,0 +1,458 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WLD Site Platform\n"
+"POT-Creation-Date: 2023-01-22 15:33+1300\n"
+"PO-Revision-Date: 2023-01-22 15:33+1300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wld-site.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+
+#: includes/modules/class-admin.php:75
+msgctxt "Admin Notice for Local Dev Environment"
+msgid "Running in Local Development Environment"
+msgstr "WordPress is in een lokale ontwikkelingsomgeving"
+
+#. translators: WP Admin footer text to author link
+#: includes/modules/class-admin.php:107
+#, php-format
+msgctxt "WP Admin Footer Text before link"
+msgid "and %s."
+msgstr "en %s."
+
+#: includes/modules/class-admin.php:157
+msgctxt "Plugin Action Link for Plugin Settings"
+msgid "Settings"
+msgstr "Instellingen"
+
+#: includes/modules/class-admin.php:162
+msgctxt "Plugin Action Link for Plugin Help"
+msgid "Help"
+msgstr "Hulp"
+
+#: includes/modules/class-admin.php:184
+msgctxt "Plugin Action Link for Plugin Deactivation"
+msgid "Deactivate"
+msgstr "Deactiveren"
+
+#: includes/modules/class-api.php:60
+msgctxt "Plugin Setting Section Title"
+msgid "Rest API Restricted"
+msgstr "Rest API Beperken"
+
+#: includes/modules/class-api.php:61
+msgctxt "Plugin Setting Section Description"
+msgid "Restrict API Access to non-authenticated users"
+msgstr "API-toegang beperken tot gebruikers die zijn ingelogd"
+
+#: includes/modules/class-api.php:81
+msgctxt "Plugin Setting Label"
+msgid "REST API Availability"
+msgstr "Beschikbaarheid van REST API"
+
+#: includes/modules/class-api.php:109
+msgctxt "Error Text when Rest API Authentication is required"
+msgid "Authentication Required"
+msgstr "Verificatie vereist"
+
+#: includes/modules/class-api.php:152
+msgctxt "Option Radio Label"
+msgid "REST API Availability"
+msgstr "Beschikbaarheid van REST API"
+
+#: includes/modules/class-api.php:155
+msgctxt "Option Radio Label"
+msgid "Restrict all access to authenticated users"
+msgstr "Alle toegang verlenen aan gebruikers die zijn ingelogd"
+
+#. translators: %s is a link to the developer reference for the users endpoint.
+#: includes/modules/class-api.php:163
+#, php-format
+msgctxt "Option Radio Label"
+msgid ""
+"Restrict access to the <code><a href='%s'>users</a></code> endpoint to "
+"authenticated users"
+msgstr ""
+"Toegang tot het <code><a href='%s'>users</a></code> eindpunt beperken voor "
+"gebruikers die zijn ingelogd"
+
+#: includes/modules/class-api.php:171
+msgctxt "Option Radio Label"
+msgid "Publicly accessible"
+msgstr "Openbaar toegankelijk"
+
+#. translators: Login, invalid details entered
+#: includes/modules/class-login.php:36
+msgctxt "WP Login Error Message"
+msgid "ERROR: Invalid Login Details"
+msgstr "FOUT: Ongeldige logingegevens"
+
+#: includes/modules/class-options.php:233
+msgctxt "Page Menu Title"
+msgid "Platform Options"
+msgstr "Platform opties"
+
+#: includes/modules/class-options.php:234
+msgctxt "Settings Menu Title"
+msgid "Platform"
+msgstr "Platform"
+
+#: includes/modules/class-options.php:250
+msgctxt "Plugin Options Page Title"
+msgid "Platform Options"
+msgstr "Platform opties"
+
+#: includes/modules/class-options.php:258
+msgctxt "Plugin Options Save Button"
+msgid "Save Changes"
+msgstr "Wijzigingen opslaan"
+
+#: includes/modules/class-options.php:278
+msgctxt "Plugin Option Radio Label"
+msgid "Yes"
+msgstr "Ja"
+
+#: includes/modules/class-options.php:281
+msgctxt "Plugin Option Radio Label"
+msgid "No"
+msgstr "Nee"
+
+#. translators: meta_tag generator Description
+#: includes/modules/class-security.php:108
+msgctxt "Shown in HTML <head> instead of WordPress Version X.X"
+msgid "WordPress Managed Version"
+msgstr "Beheerde versie van WordPress"
+
+#: includes/modules/class-security.php:119
+msgctxt "Plugin Setting Section Title"
+msgid "Security"
+msgstr "Beveiliging"
+
+#: includes/modules/class-security.php:120
+msgctxt "Plugin Setting Section Description"
+msgid "Manage Security related options"
+msgstr "Beveiligingsgerelateerde opties beheren"
+
+#: includes/modules/class-security.php:140
+msgctxt "Plugin Setting Label"
+msgid "XML-RPC"
+msgstr "XML-RPC"
+
+#: includes/modules/class-security.php:145
+msgctxt "Plugin Setting Radio Label"
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+
+#: includes/modules/class-security.php:146 includes/modules/class-speed.php:135
+msgctxt "Plugin Setting Radio Label"
+msgid "Leave On"
+msgstr "Laat aan"
+
+#: includes/modules/class-speed.php:112
+msgctxt "Plugin Setting Section Title"
+msgid "Speed Optimisation"
+msgstr "Snelheidsoptimalisatie"
+
+#: includes/modules/class-speed.php:113
+msgctxt "Plugin Setting Section Description"
+msgid "This disables features to speed up page loads"
+msgstr ""
+"Hiermee worden functies uitgeschakeld om het laden van pagina's te versnellen"
+
+#: includes/modules/class-speed.php:118
+msgctxt "Plugin Setting Section Title"
+msgid "WordPress Comments"
+msgstr "Wordpress Reacties"
+
+#: includes/modules/class-speed.php:119
+msgctxt "Plugin Setting Section Description"
+msgid "This allows you to disable comments for Page and Post types"
+msgstr "Hiermee kun je reacties uitschakelen voor pagina- en berichttypen"
+
+#: includes/modules/class-speed.php:134
+msgctxt "Plugin Setting Radio Label"
+msgid "Disable"
+msgstr "Uitschakelen"
+
+#: includes/modules/class-speed.php:144
+msgctxt "Plugin Setting Label"
+msgid "WP Embeds"
+msgstr "WP Embeds"
+
+#: includes/modules/class-speed.php:156
+msgctxt "Plugin Setting Label"
+msgid "Pingbacks"
+msgstr "Pingbacks"
+
+#: includes/modules/class-speed.php:168
+msgctxt "Plugin Setting Label"
+msgid "Shortlinks in Header"
+msgstr "Shortlinks in Header"
+
+#: includes/modules/class-speed.php:180
+msgctxt "Plugin Setting Label"
+msgid "RSS"
+msgstr "RSS"
+
+#: includes/modules/class-speed.php:186
+msgctxt "Plugin Setting Radio Label"
+msgid "Enable"
+msgstr "Inschakelen"
+
+#: includes/modules/class-speed.php:192
+msgctxt "Plugin Setting Label"
+msgid "api.w.org Links"
+msgstr "api.w.org Links"
+
+#: includes/modules/class-speed.php:204
+msgctxt "Plugin Setting Label"
+msgid "WordPress Emoji's"
+msgstr "WordPress Emoji's"
+
+#: includes/modules/class-speed.php:216
+msgctxt "Plugin Setting Label"
+msgid "Comments"
+msgstr "Reacties"
+
+#: includes/modules/class-speed.php:296
+msgctxt "RSS Feed disabled message"
+msgid "No feed available"
+msgstr "Geen feed beschikbaar"
+
+#: includes/modules/class-support.php:89
+msgctxt "Support Form error"
+msgid "Your user does not have permission to lodge a support request"
+msgstr ""
+"Uw gebruiker heeft geen toestemming om een ondersteuningsverzoek in te dienen"
+
+#: includes/modules/class-support.php:94 includes/modules/class-support.php:100
+msgctxt "Support Form error"
+msgid "Please enter a message"
+msgstr "Vul een bericht in"
+
+#: includes/modules/class-support.php:105
+msgctxt "Support Form error"
+msgid "Message exceeds 500 characters"
+msgstr "Bericht is langer dan 500 tekens"
+
+#: includes/modules/class-support.php:111
+msgctxt "Support Form error"
+msgid "User Error"
+msgstr "Fout van gebruiker"
+
+#: includes/modules/class-support.php:152
+msgctxt "Support Form error"
+msgid "Support Email Data Missing"
+msgstr "E-mailgegevens voor ondersteuning ontbreken"
+
+#: includes/modules/class-support.php:157
+msgctxt "Support Form error"
+msgid "Support Email Data Error"
+msgstr "Fout met e-mailgegevens voor ondersteuning"
+
+#: includes/modules/class-support.php:173
+msgctxt "Support Form success"
+msgid "Support Request Created"
+msgstr "Ondersteuningsverzoek ingediend"
+
+#: includes/modules/class-support.php:177
+msgctxt "Support Form error"
+msgid "Error sending the support request"
+msgstr "Fout bij het verzenden van het ondersteuningsverzoek"
+
+#: includes/modules/class-support.php:180
+msgctxt "Support Form error"
+msgid "Security Error"
+msgstr "Beveiligingsfout"
+
+#: includes/modules/class-support.php:190
+msgctxt "Support Menu Title"
+msgid "Support"
+msgstr "Ondersteuning"
+
+#: includes/modules/class-support.php:211
+msgctxt "Support Form Title"
+msgid "Contact Support"
+msgstr "Neem contact op met support"
+
+#: includes/modules/class-support.php:215
+msgctxt "Support Form Text Area Title"
+msgid "Your Message"
+msgstr "Jouw bericht"
+
+#: includes/modules/class-support.php:216
+msgctxt "Support Form Text Area Title Subtext"
+msgid "Type your question below and our team will be in contact soon"
+msgstr "Typ hieronder uw vraag, ons team neemt binnenkort contact met u op"
+
+#: includes/modules/class-support.php:218
+msgctxt "Support Form text Area Placeholder"
+msgid "How can we help?"
+msgstr "Hoe kunnen we je helpen?"
+
+#: includes/modules/class-support.php:222
+msgctxt "Support Form footer text"
+msgid "Do not submit passwords or other sensitive information."
+msgstr "Voer geen wachtwoorden of andere gevoelige informatie in."
+
+#. translators: Displayed in the support modal in the footer
+#: includes/modules/class-support.php:225
+#, php-format
+msgctxt "Support Form footer text line 2"
+msgid "You will receive any replies on your registered email address (%s)."
+msgstr "U ontvangt antwoorden op uw geregistreerde e-mailadres (%s)."
+
+#: includes/modules/class-support.php:258
+msgctxt "Support Form Button Text Cancel"
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: includes/modules/class-support.php:259
+msgctxt "Support Form Button Text Send"
+msgid "Send"
+msgstr "Verzenden"
+
+#: includes/modules/class-support.php:286
+msgctxt "Support widget title"
+msgid "Welcome"
+msgstr "Welkom"
+
+#: includes/modules/class-support.php:298
+msgctxt "Support Widget Button text"
+msgid "Get Support"
+msgstr "Support Aanvragen"
+
+#. translators: Dashboard Widget, Content text, name, url, email, support button
+#: includes/modules/class-support.php:302
+#, php-format
+msgctxt "Support Widget HTML Body"
+msgid ""
+"Welcome to the administration panel of your Content Management System (CMS), "
+"this allows you to manage your own website.</p>If you have a question please "
+"contact us using the following contact information:<br><br>%4$sEmail: <a "
+"href=\"mailto:%3$s\">%3$s</a> <br>Web: <a href=\"%2$s\" "
+"target=\"_blank\">%2$s</a><p>The %1$s team</p>"
+msgstr ""
+"Welkom bij het administratiepaneel van jou Content Management Systeem (CMS), "
+"hiermee kunt jij deze website beheren.</p>Als je een vraag heeft, neem dan "
+"contact met ons op via de volgende contactgegevens:<br><br>%4$sE-mail: <a "
+"href=\"mailto:%3$s\">%3$s</a> <br>Web: <a href=\"%2$s\" "
+"target=\"_blank\">%2$s</a><p>Het %1$s team</p>"
+
+#: includes/modules/class-testing.php:45
+msgid "Testing"
+msgstr "Testing"
+
+#: includes/modules/hosting/class-flywheel.php:64
+msgctxt "Shown in WP Admin Updates page title"
+msgid "WordPress Core"
+msgstr "WordPress-kern"
+
+#: includes/modules/hosting/class-flywheel.php:66
+msgctxt "Shown in WP Admin Updates page"
+msgid ""
+"Your service provider automatically updates sites to the latest version of "
+"the WordPress core. Maintaining a current and up-to-date core is one of the "
+"most important things one can do to keep their site free from malicious "
+"activity and malware."
+msgstr ""
+"Uw serviceprovider werkt sites automatisch bij naar de nieuwste versie van "
+"de WordPress. Het onderhouden en updaten van WordPress is éen van de "
+"belangrijkste dingen die uw kan doen om hun site vrij te houden van "
+"kwaadaardige activiteiten en malware."
+
+#: includes/modules/hosting/class-flywheel.php:79
+msgctxt "Shown underneath the Site URL field in Settings>General"
+msgid "This field is managed by your service provider."
+msgstr "Dit veld wordt beheerd door uw serviceprovider."
+
+#: includes/modules/thirdparty/class-cloudflare.php:282
+msgctxt "Plugin Setting Section Title"
+msgid "Cloudflare Beacon"
+msgstr "Cloudflare Beacon"
+
+#: includes/modules/thirdparty/class-cloudflare.php:283
+msgctxt "Plugin Setting Section Description"
+msgid "This adds the Cloudflare Beacon tracking code on each page when enabled"
+msgstr ""
+"Hiermee wordt de Cloudflare Beacon tracking code op elke pagina toegevoegd "
+"wanneer deze is ingeschakeld"
+
+#: includes/modules/thirdparty/class-cloudflare.php:303
+#: includes/modules/thirdparty/class-googletag.php:144
+msgctxt "Plugin Setting Label"
+msgid "Enabled"
+msgstr "Ingeschakeld"
+
+#: includes/modules/thirdparty/class-cloudflare.php:308
+#: includes/modules/thirdparty/class-googletag.php:149
+msgctxt "Plugin Setting Radio Label"
+msgid "Yes"
+msgstr "Ja"
+
+#: includes/modules/thirdparty/class-cloudflare.php:309
+#: includes/modules/thirdparty/class-googletag.php:150
+msgctxt "Plugin Setting Radio Label"
+msgid "No"
+msgstr "Nee"
+
+#: includes/modules/thirdparty/class-cloudflare.php:315
+msgctxt "Plugin Setting Label"
+msgid "Beacon ID"
+msgstr "Beacon ID"
+
+#: includes/modules/thirdparty/class-googletag.php:123
+msgctxt "Plugin Setting Section Title"
+msgid "Google Tag ID"
+msgstr "Google Tag ID"
+
+#: includes/modules/thirdparty/class-googletag.php:124
+msgctxt "Plugin Setting Section Description"
+msgid "This adds the Google Tag tracking code on each page when enabled"
+msgstr ""
+"Hiermee wordt de tracking code voor Google Tags op elke pagina toegevoegd "
+"wanneer deze is ingeschakeld"
+
+#: includes/modules/thirdparty/class-googletag.php:156
+msgctxt "Plugin Setting Label"
+msgid "Google Tag ID"
+msgstr "Google Tag ID"
+
+#. Plugin Name of the plugin/theme
+msgid "WLD Site Platform"
+msgstr "WLD Site Platform"
+
+#. Plugin URI of the plugin/theme
+msgid "https://whitelabl.ltd"
+msgstr "https://whitelabl.ltd"
+
+#. Description of the plugin/theme
+msgid "WLD Site configures WordPress with additional security and features"
+msgstr "WLD Site configureert WordPress met extra beveiliging en functies"
+
+#. Author of the plugin/theme
+msgid "Whitelabel Digital"
+msgstr "Whitelabel Digital"
+
+#. Author URI of the plugin/theme
+msgid "https://whitelabel.ltd"
+msgstr "https://whitelabel.ltd"
+
+#, php-format
+#~ msgctxt "WP Admin footer text addition"
+#~ msgid "and <a href=\"%s\" target=\"_blank\">%s</a>."
+#~ msgstr "en <a href=“%s” target=“_blank”>%s</a>."

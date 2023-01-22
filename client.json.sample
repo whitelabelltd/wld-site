@@ -1,0 +1,11 @@
+	{
+	  "disable_plugin_deactivation": true,
+	  "agency_domains": [""],
+	  "support_email_to": "",
+	  "managed_by_name": "",
+	  "managed_by_url": "",
+	  "site_admin_email": "",
+	  "is_fresh_wp_install": false,
+	  "fresh_wp_install_wplang": "",
+	  "fresh_wp_install_timezone_string": ""
+	}

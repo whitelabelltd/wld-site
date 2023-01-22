@@ -1,0 +1,436 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WLD Site Platform\n"
+"POT-Creation-Date: 2023-01-22 15:33+1300\n"
+"PO-Revision-Date: 2023-01-22 10:55+1300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wld-site.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+
+#: includes/modules/class-admin.php:75
+msgctxt "Admin Notice for Local Dev Environment"
+msgid "Running in Local Development Environment"
+msgstr ""
+
+#. translators: WP Admin footer text to author link
+#: includes/modules/class-admin.php:107
+#, php-format
+msgctxt "WP Admin Footer Text before link"
+msgid "and %s."
+msgstr ""
+
+#: includes/modules/class-admin.php:157
+msgctxt "Plugin Action Link for Plugin Settings"
+msgid "Settings"
+msgstr ""
+
+#: includes/modules/class-admin.php:162
+msgctxt "Plugin Action Link for Plugin Help"
+msgid "Help"
+msgstr ""
+
+#: includes/modules/class-admin.php:184
+msgctxt "Plugin Action Link for Plugin Deactivation"
+msgid "Deactivate"
+msgstr ""
+
+#: includes/modules/class-api.php:60
+msgctxt "Plugin Setting Section Title"
+msgid "Rest API Restricted"
+msgstr ""
+
+#: includes/modules/class-api.php:61
+msgctxt "Plugin Setting Section Description"
+msgid "Restrict API Access to non-authenticated users"
+msgstr ""
+
+#: includes/modules/class-api.php:81
+msgctxt "Plugin Setting Label"
+msgid "REST API Availability"
+msgstr ""
+
+#: includes/modules/class-api.php:109
+msgctxt "Error Text when Rest API Authentication is required"
+msgid "Authentication Required"
+msgstr ""
+
+#: includes/modules/class-api.php:152
+msgctxt "Option Radio Label"
+msgid "REST API Availability"
+msgstr ""
+
+#: includes/modules/class-api.php:155
+msgctxt "Option Radio Label"
+msgid "Restrict all access to authenticated users"
+msgstr ""
+
+#. translators: %s is a link to the developer reference for the users endpoint.
+#: includes/modules/class-api.php:163
+#, php-format
+msgctxt "Option Radio Label"
+msgid ""
+"Restrict access to the <code><a href='%s'>users</a></code> endpoint to "
+"authenticated users"
+msgstr ""
+
+#: includes/modules/class-api.php:171
+msgctxt "Option Radio Label"
+msgid "Publicly accessible"
+msgstr ""
+
+#. translators: Login, invalid details entered
+#: includes/modules/class-login.php:36
+msgctxt "WP Login Error Message"
+msgid "ERROR: Invalid Login Details"
+msgstr ""
+
+#: includes/modules/class-options.php:233
+msgctxt "Page Menu Title"
+msgid "Platform Options"
+msgstr ""
+
+#: includes/modules/class-options.php:234
+msgctxt "Settings Menu Title"
+msgid "Platform"
+msgstr ""
+
+#: includes/modules/class-options.php:250
+msgctxt "Plugin Options Page Title"
+msgid "Platform Options"
+msgstr ""
+
+#: includes/modules/class-options.php:258
+msgctxt "Plugin Options Save Button"
+msgid "Save Changes"
+msgstr ""
+
+#: includes/modules/class-options.php:278
+msgctxt "Plugin Option Radio Label"
+msgid "Yes"
+msgstr ""
+
+#: includes/modules/class-options.php:281
+msgctxt "Plugin Option Radio Label"
+msgid "No"
+msgstr ""
+
+#. translators: meta_tag generator Description
+#: includes/modules/class-security.php:108
+msgctxt "Shown in HTML <head> instead of WordPress Version X.X"
+msgid "WordPress Managed Version"
+msgstr ""
+
+#: includes/modules/class-security.php:119
+msgctxt "Plugin Setting Section Title"
+msgid "Security"
+msgstr ""
+
+#: includes/modules/class-security.php:120
+msgctxt "Plugin Setting Section Description"
+msgid "Manage Security related options"
+msgstr ""
+
+#: includes/modules/class-security.php:140
+msgctxt "Plugin Setting Label"
+msgid "XML-RPC"
+msgstr ""
+
+#: includes/modules/class-security.php:145
+msgctxt "Plugin Setting Radio Label"
+msgid "Disabled"
+msgstr ""
+
+#: includes/modules/class-security.php:146 includes/modules/class-speed.php:135
+msgctxt "Plugin Setting Radio Label"
+msgid "Leave On"
+msgstr ""
+
+#: includes/modules/class-speed.php:112
+msgctxt "Plugin Setting Section Title"
+msgid "Speed Optimisation"
+msgstr ""
+
+#: includes/modules/class-speed.php:113
+msgctxt "Plugin Setting Section Description"
+msgid "This disables features to speed up page loads"
+msgstr ""
+
+#: includes/modules/class-speed.php:118
+msgctxt "Plugin Setting Section Title"
+msgid "WordPress Comments"
+msgstr ""
+
+#: includes/modules/class-speed.php:119
+msgctxt "Plugin Setting Section Description"
+msgid "This allows you to disable comments for Page and Post types"
+msgstr ""
+
+#: includes/modules/class-speed.php:134
+msgctxt "Plugin Setting Radio Label"
+msgid "Disable"
+msgstr ""
+
+#: includes/modules/class-speed.php:144
+msgctxt "Plugin Setting Label"
+msgid "WP Embeds"
+msgstr ""
+
+#: includes/modules/class-speed.php:156
+msgctxt "Plugin Setting Label"
+msgid "Pingbacks"
+msgstr ""
+
+#: includes/modules/class-speed.php:168
+msgctxt "Plugin Setting Label"
+msgid "Shortlinks in Header"
+msgstr ""
+
+#: includes/modules/class-speed.php:180
+msgctxt "Plugin Setting Label"
+msgid "RSS"
+msgstr ""
+
+#: includes/modules/class-speed.php:186
+msgctxt "Plugin Setting Radio Label"
+msgid "Enable"
+msgstr ""
+
+#: includes/modules/class-speed.php:192
+msgctxt "Plugin Setting Label"
+msgid "api.w.org Links"
+msgstr ""
+
+#: includes/modules/class-speed.php:204
+msgctxt "Plugin Setting Label"
+msgid "WordPress Emoji's"
+msgstr ""
+
+#: includes/modules/class-speed.php:216
+msgctxt "Plugin Setting Label"
+msgid "Comments"
+msgstr ""
+
+#: includes/modules/class-speed.php:296
+msgctxt "RSS Feed disabled message"
+msgid "No feed available"
+msgstr ""
+
+#: includes/modules/class-support.php:89
+msgctxt "Support Form error"
+msgid "Your user does not have permission to lodge a support request"
+msgstr ""
+
+#: includes/modules/class-support.php:94 includes/modules/class-support.php:100
+msgctxt "Support Form error"
+msgid "Please enter a message"
+msgstr ""
+
+#: includes/modules/class-support.php:105
+msgctxt "Support Form error"
+msgid "Message exceeds 500 characters"
+msgstr ""
+
+#: includes/modules/class-support.php:111
+msgctxt "Support Form error"
+msgid "User Error"
+msgstr ""
+
+#: includes/modules/class-support.php:152
+msgctxt "Support Form error"
+msgid "Support Email Data Missing"
+msgstr ""
+
+#: includes/modules/class-support.php:157
+msgctxt "Support Form error"
+msgid "Support Email Data Error"
+msgstr ""
+
+#: includes/modules/class-support.php:173
+msgctxt "Support Form success"
+msgid "Support Request Created"
+msgstr ""
+
+#: includes/modules/class-support.php:177
+msgctxt "Support Form error"
+msgid "Error sending the support request"
+msgstr ""
+
+#: includes/modules/class-support.php:180
+msgctxt "Support Form error"
+msgid "Security Error"
+msgstr ""
+
+#: includes/modules/class-support.php:190
+msgctxt "Support Menu Title"
+msgid "Support"
+msgstr ""
+
+#: includes/modules/class-support.php:211
+msgctxt "Support Form Title"
+msgid "Contact Support"
+msgstr ""
+
+#: includes/modules/class-support.php:215
+msgctxt "Support Form Text Area Title"
+msgid "Your Message"
+msgstr ""
+
+#: includes/modules/class-support.php:216
+msgctxt "Support Form Text Area Title Subtext"
+msgid "Type your question below and our team will be in contact soon"
+msgstr ""
+
+#: includes/modules/class-support.php:218
+msgctxt "Support Form text Area Placeholder"
+msgid "How can we help?"
+msgstr ""
+
+#: includes/modules/class-support.php:222
+msgctxt "Support Form footer text"
+msgid "Do not submit passwords or other sensitive information."
+msgstr ""
+
+#. translators: Displayed in the support modal in the footer
+#: includes/modules/class-support.php:225
+#, php-format
+msgctxt "Support Form footer text line 2"
+msgid "You will receive any replies on your registered email address (%s)."
+msgstr ""
+
+#: includes/modules/class-support.php:258
+msgctxt "Support Form Button Text Cancel"
+msgid "Cancel"
+msgstr ""
+
+#: includes/modules/class-support.php:259
+msgctxt "Support Form Button Text Send"
+msgid "Send"
+msgstr ""
+
+#: includes/modules/class-support.php:286
+msgctxt "Support widget title"
+msgid "Welcome"
+msgstr ""
+
+#: includes/modules/class-support.php:298
+msgctxt "Support Widget Button text"
+msgid "Get Support"
+msgstr ""
+
+#. translators: Dashboard Widget, Content text, name, url, email, support button
+#: includes/modules/class-support.php:302
+#, php-format
+msgctxt "Support Widget HTML Body"
+msgid ""
+"Welcome to the administration panel of your Content Management System (CMS), "
+"this allows you to manage your own website.</p>If you have a question please "
+"contact us using the following contact information:<br><br>%4$sEmail: <a "
+"href=\"mailto:%3$s\">%3$s</a> <br>Web: <a href=\"%2$s\" "
+"target=\"_blank\">%2$s</a><p>The %1$s team</p>"
+msgstr ""
+
+#: includes/modules/class-testing.php:45
+msgid "Testing"
+msgstr ""
+
+#: includes/modules/hosting/class-flywheel.php:64
+msgctxt "Shown in WP Admin Updates page title"
+msgid "WordPress Core"
+msgstr ""
+
+#: includes/modules/hosting/class-flywheel.php:66
+msgctxt "Shown in WP Admin Updates page"
+msgid ""
+"Your service provider automatically updates sites to the latest version of "
+"the WordPress core. Maintaining a current and up-to-date core is one of the "
+"most important things one can do to keep their site free from malicious "
+"activity and malware."
+msgstr ""
+
+#: includes/modules/hosting/class-flywheel.php:79
+msgctxt "Shown underneath the Site URL field in Settings>General"
+msgid "This field is managed by your service provider."
+msgstr ""
+
+#: includes/modules/thirdparty/class-cloudflare.php:282
+msgctxt "Plugin Setting Section Title"
+msgid "Cloudflare Beacon"
+msgstr ""
+
+#: includes/modules/thirdparty/class-cloudflare.php:283
+msgctxt "Plugin Setting Section Description"
+msgid "This adds the Cloudflare Beacon tracking code on each page when enabled"
+msgstr ""
+
+#: includes/modules/thirdparty/class-cloudflare.php:303
+#: includes/modules/thirdparty/class-googletag.php:144
+msgctxt "Plugin Setting Label"
+msgid "Enabled"
+msgstr ""
+
+#: includes/modules/thirdparty/class-cloudflare.php:308
+#: includes/modules/thirdparty/class-googletag.php:149
+msgctxt "Plugin Setting Radio Label"
+msgid "Yes"
+msgstr ""
+
+#: includes/modules/thirdparty/class-cloudflare.php:309
+#: includes/modules/thirdparty/class-googletag.php:150
+msgctxt "Plugin Setting Radio Label"
+msgid "No"
+msgstr ""
+
+#: includes/modules/thirdparty/class-cloudflare.php:315
+msgctxt "Plugin Setting Label"
+msgid "Beacon ID"
+msgstr ""
+
+#: includes/modules/thirdparty/class-googletag.php:123
+msgctxt "Plugin Setting Section Title"
+msgid "Google Tag ID"
+msgstr ""
+
+#: includes/modules/thirdparty/class-googletag.php:124
+msgctxt "Plugin Setting Section Description"
+msgid "This adds the Google Tag tracking code on each page when enabled"
+msgstr ""
+
+#: includes/modules/thirdparty/class-googletag.php:156
+msgctxt "Plugin Setting Label"
+msgid "Google Tag ID"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WLD Site Platform"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://whitelabl.ltd"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "WLD Site configures WordPress with additional security and features"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Whitelabel Digital"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://whitelabel.ltd"
+msgstr ""
