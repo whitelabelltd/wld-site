@@ -174,7 +174,7 @@ You can include the `client.json` file in the plugin root directory, with the ne
 
 ## Changelog
 
-A complete listing of all notable changes to this plugin are documented in [`CHANGELOG.md`](../blob/master/CHANGELOG.md).
+A complete listing of all notable changes to this plugin are documented in [`CHANGELOG.md`](../master/CHANGELOG.md).
 
 ## Credits
 
