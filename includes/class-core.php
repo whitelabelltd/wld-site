@@ -41,7 +41,7 @@ class Core {
 		$this->load_helpers(
 			array(
 				'agency',
-				'ip',
+				'iputil',
 				'tools',
 			)
 		);
@@ -77,6 +77,7 @@ class Core {
 		$this->load_modules_third_party(
 			array(
 				'cloudflare',
+				'flatsome',
 				'googletag',
 				'managewp',
 				'woocommerce',
