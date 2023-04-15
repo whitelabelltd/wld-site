@@ -176,13 +176,29 @@
       "oAP" : "\/includes",
       "oF" : 0
     },
-    "\/index.php" : {
+    "\/languages\/wld-site-nl_NL.mo" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/index.php",
-      "oF" : 1
+      "oA" : 0,
+      "oAP" : "\/languages\/wld-site-nl_NL.mo",
+      "oF" : 0
+    },
+    "\/languages\/wld-site-nl_NL.po" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/languages\/wld-site-nl_NL.po",
+      "oF" : 0
+    },
+    "\/languages\/wld-site.pot" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/languages\/wld-site.pot",
+      "oF" : 0
     },
     "\/LICENSE.md" : {
       "cB" : 0,
