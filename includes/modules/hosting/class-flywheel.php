@@ -24,12 +24,32 @@ class Flywheel extends Modules {
 	 * @return void
 	 */
 	public function hooks() : void {
+		// Are we running on the Flywheel Platform?
 		if ( $this->is_flywheel_environment() ) {
 			// Remove Flywheel Script First.
 			add_action( 'admin_enqueue_scripts', array( $this, 'whitelabel_admin_js_init' ), 1, 1 );
 
 			// Replace with our own.
 			add_action( 'admin_enqueue_scripts', array( $this, 'whitelabel_admin_js' ), 50, 1 );
+
+			// Fix the build-in Auto Updates for Plugins/Themes as Flywheel blocks this by default.
+			add_action( 'wp_update_plugins', array( $this, 'fix_wp_auto_updates' ), 20 );
+
+			// Re-add the WordPress version check removed by the Flywheel Platform.
+			if ( ! has_action( 'wp_version_check', 'wp_version_check' ) ) {
+				add_action( 'wp_version_check', 'wp_version_check' );
+			}
+		}
+	}
+
+	/**
+	 * Fixes the WP Auto Updater as Flywheel disables this
+	 *
+	 * @return void
+	 */
+	public function fix_wp_auto_updates() {
+		if ( wp_doing_cron() && ! doing_action( 'wp_maybe_auto_update' ) ) {
+			do_action( 'wp_maybe_auto_update' );
 		}
 	}
 
