@@ -75,7 +75,13 @@ class Tools {
 		if ( $email &&
 			is_email( $email )
 		) {
-			// Sets the Admin Email.
+
+			// Prevent change email notification from being sent.
+			add_filter( 'send_site_admin_email_change_email', '__return_false', 99 );
+			remove_action( 'update_option_new_admin_email', 'update_option_new_admin_email', 10, 2 );
+			remove_action( 'update_option_admin_email', 'wp_site_admin_email_change_notification', 10, 3 );
+
+			// Sets the new Admin Email.
 			update_option( 'admin_email', $email );
 			update_option( 'new_admin_email', $email );
 
