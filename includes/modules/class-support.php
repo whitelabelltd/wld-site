@@ -206,9 +206,22 @@ class Support extends Modules {
 
 		// Get Current Users Email.
 		$email = wp_get_current_user()->user_email;
+
+		// Get Support Company Name.
+		$support_name = $this->get_extra_option( 'managed_by_name' );
+		if ( $support_name ) {
+			$support_name = sprintf( '%s ', $support_name );
+		} else {
+			$support_name = '';
+		}
+
+		// Set header text.
+		/* translators: Support Form Header text */
+		$h1_header_text = sprintf( __( 'Contact %sSupport', 'wld-site' ), $support_name );
+
 		?>
 		<div id="support-modal" style="display: none;">
-			<h1 id="support-modal-h1" style="height: 30px; margin-bottom: 30px;"><?php echo( esc_html_x( 'Contact Support', 'Support Form Title', 'wld-site' ) ); ?></h1>
+			<h1 id="support-modal-h1" style="height: 30px; margin-bottom: 30px;"><?php echo( esc_html( $h1_header_text ) ); ?></h1>
 			<div class="error_message" style="display: none"></div>
 			<div id="support-modal-content" class="content_modal wlds_support_form">
 				<div class="textwrapper">
