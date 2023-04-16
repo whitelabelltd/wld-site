@@ -1,6 +1,6 @@
 # WLD Site Plugin
 
-[![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level) ![WordPress tested up to version](https://img.shields.io/badge/WordPress-v6.1%20tested-success.svg)
+![Support Level](https://img.shields.io/badge/support-active-green.svg) ![WordPress tested up to version](https://img.shields.io/badge/WordPress-v6.2%20tested-success.svg) ![PHP tested with version](https://img.shields.io/badge/PHP-v8.1%20tested-success.svg)
 
 > This plugin configures WordPress to better protect sites with a default set of functions and features. This plugin is not meant for general-distribution, but is available for public perusal.
 
