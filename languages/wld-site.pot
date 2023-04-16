@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WLD Site Platform\n"
-"POT-Creation-Date: 2023-01-22 15:33+1300\n"
-"PO-Revision-Date: 2023-01-22 10:55+1300\n"
+"POT-Creation-Date: 2023-04-16 16:54+1200\n"
+"PO-Revision-Date: 2023-04-16 13:54+1200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -99,32 +99,32 @@ msgctxt "WP Login Error Message"
 msgid "ERROR: Invalid Login Details"
 msgstr ""
 
-#: includes/modules/class-options.php:233
+#: includes/modules/class-options.php:315
 msgctxt "Page Menu Title"
 msgid "Platform Options"
 msgstr ""
 
-#: includes/modules/class-options.php:234
+#: includes/modules/class-options.php:316
 msgctxt "Settings Menu Title"
 msgid "Platform"
 msgstr ""
 
-#: includes/modules/class-options.php:250
+#: includes/modules/class-options.php:332
 msgctxt "Plugin Options Page Title"
 msgid "Platform Options"
 msgstr ""
 
-#: includes/modules/class-options.php:258
+#: includes/modules/class-options.php:340
 msgctxt "Plugin Options Save Button"
 msgid "Save Changes"
 msgstr ""
 
-#: includes/modules/class-options.php:278
+#: includes/modules/class-options.php:360
 msgctxt "Plugin Option Radio Label"
 msgid "Yes"
 msgstr ""
 
-#: includes/modules/class-options.php:281
+#: includes/modules/class-options.php:363
 msgctxt "Plugin Option Radio Label"
 msgid "No"
 msgstr ""
@@ -280,60 +280,61 @@ msgctxt "Support Menu Title"
 msgid "Support"
 msgstr ""
 
-#: includes/modules/class-support.php:211
-msgctxt "Support Form Title"
-msgid "Contact Support"
+#. translators: Support Form Header text
+#: includes/modules/class-support.php:220
+#, php-format
+msgid "Contact %sSupport"
 msgstr ""
 
-#: includes/modules/class-support.php:215
+#: includes/modules/class-support.php:228
 msgctxt "Support Form Text Area Title"
 msgid "Your Message"
 msgstr ""
 
-#: includes/modules/class-support.php:216
+#: includes/modules/class-support.php:229
 msgctxt "Support Form Text Area Title Subtext"
 msgid "Type your question below and our team will be in contact soon"
 msgstr ""
 
-#: includes/modules/class-support.php:218
+#: includes/modules/class-support.php:231
 msgctxt "Support Form text Area Placeholder"
 msgid "How can we help?"
 msgstr ""
 
-#: includes/modules/class-support.php:222
+#: includes/modules/class-support.php:235
 msgctxt "Support Form footer text"
 msgid "Do not submit passwords or other sensitive information."
 msgstr ""
 
 #. translators: Displayed in the support modal in the footer
-#: includes/modules/class-support.php:225
+#: includes/modules/class-support.php:238
 #, php-format
 msgctxt "Support Form footer text line 2"
 msgid "You will receive any replies on your registered email address (%s)."
 msgstr ""
 
-#: includes/modules/class-support.php:258
+#: includes/modules/class-support.php:271
 msgctxt "Support Form Button Text Cancel"
 msgid "Cancel"
 msgstr ""
 
-#: includes/modules/class-support.php:259
+#: includes/modules/class-support.php:272
 msgctxt "Support Form Button Text Send"
 msgid "Send"
 msgstr ""
 
-#: includes/modules/class-support.php:286
+#: includes/modules/class-support.php:299
 msgctxt "Support widget title"
 msgid "Welcome"
 msgstr ""
 
-#: includes/modules/class-support.php:298
+#: includes/modules/class-support.php:311
 msgctxt "Support Widget Button text"
 msgid "Get Support"
 msgstr ""
 
 #. translators: Dashboard Widget, Content text, name, url, email, support button
-#: includes/modules/class-support.php:302
+#: includes/modules/class-support.php:315
 #, php-format
 msgctxt "Support Widget HTML Body"
 msgid ""
@@ -344,16 +345,16 @@ msgid ""
 "target=\"_blank\">%2$s</a><p>The %1$s team</p>"
 msgstr ""
 
-#: includes/modules/class-testing.php:45
+#: includes/modules/class-testing.php:44
 msgid "Testing"
 msgstr ""
 
-#: includes/modules/hosting/class-flywheel.php:64
+#: includes/modules/hosting/class-flywheel.php:84
 msgctxt "Shown in WP Admin Updates page title"
 msgid "WordPress Core"
 msgstr ""
 
-#: includes/modules/hosting/class-flywheel.php:66
+#: includes/modules/hosting/class-flywheel.php:86
 msgctxt "Shown in WP Admin Updates page"
 msgid ""
 "Your service provider automatically updates sites to the latest version of "
@@ -362,40 +363,40 @@ msgid ""
 "activity and malware."
 msgstr ""
 
-#: includes/modules/hosting/class-flywheel.php:79
+#: includes/modules/hosting/class-flywheel.php:99
 msgctxt "Shown underneath the Site URL field in Settings>General"
 msgid "This field is managed by your service provider."
 msgstr ""
 
-#: includes/modules/thirdparty/class-cloudflare.php:282
+#: includes/modules/thirdparty/class-cloudflare.php:287
 msgctxt "Plugin Setting Section Title"
 msgid "Cloudflare Beacon"
 msgstr ""
 
-#: includes/modules/thirdparty/class-cloudflare.php:283
+#: includes/modules/thirdparty/class-cloudflare.php:288
 msgctxt "Plugin Setting Section Description"
 msgid "This adds the Cloudflare Beacon tracking code on each page when enabled"
 msgstr ""
 
-#: includes/modules/thirdparty/class-cloudflare.php:303
+#: includes/modules/thirdparty/class-cloudflare.php:308
 #: includes/modules/thirdparty/class-googletag.php:144
 msgctxt "Plugin Setting Label"
 msgid "Enabled"
 msgstr ""
 
-#: includes/modules/thirdparty/class-cloudflare.php:308
+#: includes/modules/thirdparty/class-cloudflare.php:313
 #: includes/modules/thirdparty/class-googletag.php:149
 msgctxt "Plugin Setting Radio Label"
 msgid "Yes"
 msgstr ""
 
-#: includes/modules/thirdparty/class-cloudflare.php:309
+#: includes/modules/thirdparty/class-cloudflare.php:314
 #: includes/modules/thirdparty/class-googletag.php:150
 msgctxt "Plugin Setting Radio Label"
 msgid "No"
 msgstr ""
 
-#: includes/modules/thirdparty/class-cloudflare.php:315
+#: includes/modules/thirdparty/class-cloudflare.php:320
 msgctxt "Plugin Setting Label"
 msgid "Beacon ID"
 msgstr ""
@@ -420,7 +421,8 @@ msgid "WLD Site Platform"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://whitelabl.ltd"
+#. Author URI of the plugin/theme
+msgid "https://whitelabel.ltd"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -429,8 +431,4 @@ msgstr ""
 
 #. Author of the plugin/theme
 msgid "Whitelabel Digital"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "https://whitelabel.ltd"
 msgstr ""
