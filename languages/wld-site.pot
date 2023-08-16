@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WLD Site Platform\n"
-"POT-Creation-Date: 2023-04-16 16:54+1200\n"
+"POT-Creation-Date: 2023-08-16 15:50+1200\n"
 "PO-Revision-Date: 2023-04-16 13:54+1200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: wld-site.php\n"
@@ -349,6 +349,35 @@ msgstr ""
 msgid "Testing"
 msgstr ""
 
+#: includes/modules/class-wpupdates.php:58
+msgctxt "Plugin Setting Section Title"
+msgid "WordPress Auto Updates"
+msgstr ""
+
+#: includes/modules/class-wpupdates.php:59
+msgctxt "Plugin Setting Section Description"
+msgid "Allow auto updates to occur for the following items"
+msgstr ""
+
+#: includes/modules/class-wpupdates.php:79
+msgctxt "Plugin Setting Label"
+msgid "Translations"
+msgstr ""
+
+#: includes/modules/class-wpupdates.php:84
+#: includes/modules/thirdparty/class-cloudflare.php:313
+#: includes/modules/thirdparty/class-googletag.php:149
+msgctxt "Plugin Setting Radio Label"
+msgid "Yes"
+msgstr ""
+
+#: includes/modules/class-wpupdates.php:85
+#: includes/modules/thirdparty/class-cloudflare.php:314
+#: includes/modules/thirdparty/class-googletag.php:150
+msgctxt "Plugin Setting Radio Label"
+msgid "No"
+msgstr ""
+
 #: includes/modules/hosting/class-flywheel.php:84
 msgctxt "Shown in WP Admin Updates page title"
 msgid "WordPress Core"
@@ -382,18 +411,6 @@ msgstr ""
 #: includes/modules/thirdparty/class-googletag.php:144
 msgctxt "Plugin Setting Label"
 msgid "Enabled"
-msgstr ""
-
-#: includes/modules/thirdparty/class-cloudflare.php:313
-#: includes/modules/thirdparty/class-googletag.php:149
-msgctxt "Plugin Setting Radio Label"
-msgid "Yes"
-msgstr ""
-
-#: includes/modules/thirdparty/class-cloudflare.php:314
-#: includes/modules/thirdparty/class-googletag.php:150
-msgctxt "Plugin Setting Radio Label"
-msgid "No"
 msgstr ""
 
 #: includes/modules/thirdparty/class-cloudflare.php:320

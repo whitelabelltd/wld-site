@@ -60,6 +60,7 @@ class Core {
 				'security',
 				'speed',
 				'support',
+				'wpupdates',
 
 				'testing{local}',
 			)

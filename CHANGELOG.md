@@ -1,3 +1,7 @@
+## [1.0.6] - 2023-08-16
+- Added: WP Auto-Updates for Translations
+- Updated: PO and MO Files
+
 ## [1.0.5] - 2023-04-16
 - Updated: Support Form Header text to include support company name
 - Updated: PO and MO Files
