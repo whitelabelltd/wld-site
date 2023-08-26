@@ -3,10 +3,10 @@
  * Plugin Name:       WLD Site Platform
  * Plugin URI:        https://whitelabel.ltd
  * Description:       WLD Site configures WordPress with additional security and features
- * Version:           1.0.6
+ * Version:           1.0.7
  * Author:            Whitelabel Digital
  * Author URI:        https://whitelabel.ltd
- * Requires at least: 6.1
+ * Requires at least: 6.3
  * Requires PHP:      8.0
  * License:           GPLv2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -22,7 +22,7 @@ namespace WLDS;
 use WLDS\Helper\Tools;
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
-define( 'WLDS_VERSION', '1.0.6' );
+define( 'WLDS_VERSION', '1.0.7' );
 define( 'WLDS_DIR', __DIR__ );
 define( 'WLDS_FILE', __FILE__ );
 if ( ! defined( 'WLDS_UPDATER_URL' ) ) {

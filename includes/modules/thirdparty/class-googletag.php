@@ -20,6 +20,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GoogleTag extends Modules {
 
 	/**
+	 * Is the Tag Enabled?
+	 *
+	 * @var bool enabled or not.
+	 */
+	protected $enabled = false;
+
+	/**
 	 * Holds the Tag ID
 	 *
 	 * @var string tag id.
@@ -48,42 +55,70 @@ class GoogleTag extends Modules {
 
 		// Add to page after Body.
 		add_action( 'wp_body_open', array( $this, 'google_tag_manager_body' ) );
+
+		// Add to DNS PreFetch.
+		add_filter( 'wp_resource_hints', array( $this, 'google_tag_add_dns_prefetch' ), 10, 2 );
+	}
+
+	/**
+	 * Is the Tag Enabled?
+	 *
+	 * @return false|string enabled, if so returns the id.
+	 */
+	protected function is_enabled() {
+		$value = false;
+		if ( $this->is_setting_enabled( 'google_tag_enable' ) ) {
+			$value = $this->get_setting( 'google_tag_id' );
+		}
+
+		if ( $value ) {
+			return $value;
+		}
+		return false;
 	}
 
 	/**
 	 * Adds Google Tag Manager code in <head> below the <title>.
 	 */
 	public function google_tag_manager_head() :void {
-		$value = false;
-		if ( $this->is_setting_enabled( 'google_tag_enable' ) ) {
-			$value = $this->get_setting( 'google_tag_id' );
-		}
-
+		$value = $this->is_enabled();
 		if ( ! $value ) {
 			return;
 		}
 		// phpcs:disable
 		?>
 		<!-- Google Tag Manager -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-					new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-				'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-			})(window,document,'script','dataLayer','<?php echo( esc_attr( $value ) ); ?>');</script>
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','<?php echo( esc_attr( $value ) ); ?>');</script>
 		<!-- End Google Tag Manager -->
 		<?php
 		// phpcs:enable
 	}
 
 	/**
+	 * Adds a DNS Pre-Fetch for the Google Tag Manager URL.
+	 *
+	 * @param array  $urls Contains the URLs.
+	 * @param string $relation_type Type of relation eg; dns-prefetch.
+	 *
+	 * @return array
+	 */
+	public function google_tag_add_dns_prefetch( $urls, $relation_type ) {
+		if ( 'dns-prefetch' === $relation_type ) {
+			// Get Tag ID (if enabled).
+			$value = $this->is_enabled();
+			if ( $value ) {
+				$urls[] = 'www.googletagmanager.com';
+				$urls   = array_unique( $urls );
+			}
+		}
+		return $urls;
+	}
+
+	/**
 	 * Adds Google Tag Manager code immediately after the opening <body> tag.
 	 */
 	public function google_tag_manager_body() : void {
-		$value = false;
-		if ( $this->is_setting_enabled( 'google_tag_enable' ) ) {
-			$value = $this->get_setting( 'google_tag_id' );
-		}
-
+		$value = $this->is_enabled();
 		if ( ! $value ) {
 			return;
 		}

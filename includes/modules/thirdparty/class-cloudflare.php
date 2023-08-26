@@ -66,7 +66,9 @@ class Cloudflare extends Modules {
 		add_action( 'wlds_update_cloudflare_ips', array( $this, 'update_ips' ) );
 
 		// Add Beacon.
-		add_action( 'wp_footer', array( $this, 'beacon' ), 20 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'beacon' ) );
+		add_filter( 'script_loader_tag', array( $this, 'beacon_fix_attribute' ), 10, 3 );
+		add_filter( 'script_loader_src', array( $this, 'beacon_js_remove_wp_version' ), 10, 2 );
 	}
 
 	/**
@@ -117,23 +119,71 @@ class Cloudflare extends Modules {
 	}
 
 	/**
-	 * Adds the Cloudflare Beacon
+	 * Adds the CloudFlare Beacon Code
 	 *
 	 * @return void
 	 */
-	public function beacon() : void {
+	public function beacon() {
 		// Make sure its enabled and not running locally.
 		if ( ! $this->is_local_env() &&
 			$this->is_setting_enabled( 'cloudflare_beacon_enable' )
 		) {
 			$id = $this->get_setting( 'cloudflare_beacon_id' );
-			if ( ! $id ) {
-				return;
+			if ( $id ) {
+				// Set Script Parameters.
+				$link = 'https://static.cloudflareinsights.com/beacon.min.js';
+
+				// Register and add the inline, requires WordPress 6.3 or higher.
+				// phpcs:disable
+				wp_register_script( 'cf-beacon', $link, array(), false, array(
+						'in_footer' => true,
+						'strategy'  => 'defer',
+					) );
+				// phpcs:enable
+				wp_enqueue_script( 'cf-beacon' );
 			}
-			// phpcs:disable
-			?><!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "<?php echo( esc_attr( $id ) ); ?>"}'></script><!-- End Cloudflare Web Analytics --><?php
-			// phpcs:enable
 		}
+	}
+
+	/**
+	 * Adds the CloudFlare Beacon Code Attribute
+	 *
+	 * @param string $tag Tag.
+	 * @param string $handle Handle.
+	 * @param string $source Source.
+	 *
+	 * @return string
+	 */
+	public function beacon_fix_attribute( $tag, $handle, $source ) {
+		// Make sure its enabled and not running locally.
+		if ( 'cf-beacon' === $handle && ! $this->is_local_env() && $this->is_setting_enabled( 'cloudflare_beacon_enable' )
+		) {
+			$id = $this->get_setting( 'cloudflare_beacon_id' );
+			if ( $id ) {
+				$file     = sprintf( "id='%s-js'", $handle );
+				$file_add = sprintf( '{"token": "%s"}', $id );
+				$file_add = sprintf( "data-cf-beacon='%s' ", $file_add );
+				$tag      = str_replace( $file, $file_add . $file, $tag );
+			}
+		}
+		return $tag;
+	}
+
+	/**
+	 * Removes the Script version numbers
+	 *
+	 * @param string $src Script Src.
+	 * @param string $handle Handle.
+	 *
+	 * @return string
+	 */
+	public function beacon_js_remove_wp_version( $src, $handle ) {
+		if ( 'cf-beacon' === $handle ) {
+			if ( strpos( $src, 'ver=' ) ) {
+				$src = remove_query_arg( 'ver', $src );
+			}
+		}
+		return $src;
 	}
 
 	/**
