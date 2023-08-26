@@ -1,3 +1,8 @@
+## [1.0.7] - 2023-08-26
+- Updated: Cloudflare Beacon code now uses core functions
+- Updated: Requires WordPress 6.3 or above
+- Updated: Google Tags added to DNS Pre-Fetch
+
 ## [1.0.6] - 2023-08-16
 - Added: WP Auto-Updates for Translations
 - Updated: PO and MO Files
