@@ -19,11 +19,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Flywheel extends Modules {
 
 	/**
+	 * Init.
+	 *
+	 * @return void
+	 */
+	public function init() {
+		// Fix WP Health Check Tests for sites on the Flywheel Platform.
+		add_filter( 'site_status_tests', array( $this, 'wp_health_remove_tests' ), 10001, 1 );
+	}
+
+	/**
 	 * WP Hooks
 	 *
 	 * @return void
 	 */
 	public function hooks() : void {
+
 		// Are we running on the Flywheel Platform?
 		if ( $this->is_flywheel_environment() ) {
 			// Remove Flywheel Script First.
@@ -40,6 +51,38 @@ class Flywheel extends Modules {
 				add_action( 'wp_version_check', 'wp_version_check' );
 			}
 		}
+	}
+
+	/**
+	 * Removes specific WP Health Tests.
+	 *
+	 * @param array $tests Array containing WP Health Tests.
+	 *
+	 * @return array
+	 */
+	public function wp_health_remove_tests( $tests ) {
+		// Only remove tests in the Flywheel Environment.
+		if ( $this->is_flywheel_environment() ) {
+			// Tests to remove, as Flywheel disables automatic updates and blocks access to disk space usage.
+			$tests_to_remove = array(
+				'background_updates',
+				'available_updates_disk_space',
+				'scheduled_events',
+				'persistent_object_cache',
+				'wordpress_version',
+			);
+
+			// Loop through each test and remove it if it exists.
+			foreach ( $tests_to_remove as $test_to_remove ) {
+				if ( isset( $tests['direct'][ $test_to_remove ] ) ) {
+					unset( $tests['direct'][ $test_to_remove ] );
+				}
+				if ( isset( $tests['async'][ $test_to_remove ] ) ) {
+					unset( $tests['async'][ $test_to_remove ] );
+				}
+			}
+		}
+		return $tests;
 	}
 
 	/**
