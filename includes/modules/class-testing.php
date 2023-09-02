@@ -19,9 +19,6 @@ class Testing {
 	 */
 	public function run() {
 
-
-
-
 	}
 
 	/**

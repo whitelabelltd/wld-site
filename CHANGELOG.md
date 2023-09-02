@@ -1,3 +1,6 @@
+## [1.0.8] - 2023-09-02
+- Added: WP Health Check compatibility for Flywheel and SpinupWP hosting
+-
 ## [1.0.7] - 2023-08-26
 - Updated: Cloudflare Beacon code now uses core functions
 - Updated: Requires WordPress 6.3 or above
