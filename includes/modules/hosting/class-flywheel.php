@@ -37,6 +37,10 @@ class Flywheel extends Modules {
 
 		// Are we running on the Flywheel Platform?
 		if ( $this->is_flywheel_environment() ) {
+
+			// Disable WP Rocket Pre-Loading.
+			add_filter( 'wlds_wprocket_disable_preload', '__return_true' );
+
 			// Remove Flywheel Script First.
 			add_action( 'admin_enqueue_scripts', array( $this, 'whitelabel_admin_js_init' ), 1, 1 );
 
