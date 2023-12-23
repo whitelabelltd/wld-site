@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WLD Site Platform\n"
-"POT-Creation-Date: 2023-08-16 15:50+1200\n"
-"PO-Revision-Date: 2023-08-16 16:01+1200\n"
+"POT-Creation-Date: 2023-12-23 16:29+1300\n"
+"PO-Revision-Date: 2023-12-23 16:29+1300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: wld-site.php\n"
@@ -354,7 +354,7 @@ msgstr ""
 "href=\"mailto:%3$s\">%3$s</a> <br>Web: <a href=\"%2$s\" "
 "target=\"_blank\">%2$s</a><p>Het %1$s team</p>"
 
-#: includes/modules/class-testing.php:44
+#: includes/modules/class-testing.php:41
 msgid "Testing"
 msgstr "Testing"
 
@@ -374,25 +374,25 @@ msgid "Translations"
 msgstr "Vertalingen"
 
 #: includes/modules/class-wpupdates.php:84
-#: includes/modules/thirdparty/class-cloudflare.php:313
-#: includes/modules/thirdparty/class-googletag.php:149
+#: includes/modules/thirdparty/class-cloudflare.php:363
+#: includes/modules/thirdparty/class-googletag.php:184
 msgctxt "Plugin Setting Radio Label"
 msgid "Yes"
 msgstr "Ja"
 
 #: includes/modules/class-wpupdates.php:85
-#: includes/modules/thirdparty/class-cloudflare.php:314
-#: includes/modules/thirdparty/class-googletag.php:150
+#: includes/modules/thirdparty/class-cloudflare.php:364
+#: includes/modules/thirdparty/class-googletag.php:185
 msgctxt "Plugin Setting Radio Label"
 msgid "No"
 msgstr "Nee"
 
-#: includes/modules/hosting/class-flywheel.php:84
+#: includes/modules/hosting/class-flywheel.php:131
 msgctxt "Shown in WP Admin Updates page title"
 msgid "WordPress Core"
 msgstr "WordPress-kern"
 
-#: includes/modules/hosting/class-flywheel.php:86
+#: includes/modules/hosting/class-flywheel.php:133
 msgctxt "Shown in WP Admin Updates page"
 msgid ""
 "Your service provider automatically updates sites to the latest version of "
@@ -405,47 +405,47 @@ msgstr ""
 "belangrijkste dingen die uw kan doen om hun site vrij te houden van "
 "kwaadaardige activiteiten en malware."
 
-#: includes/modules/hosting/class-flywheel.php:99
+#: includes/modules/hosting/class-flywheel.php:146
 msgctxt "Shown underneath the Site URL field in Settings>General"
 msgid "This field is managed by your service provider."
 msgstr "Dit veld wordt beheerd door uw serviceprovider."
 
-#: includes/modules/thirdparty/class-cloudflare.php:287
+#: includes/modules/thirdparty/class-cloudflare.php:337
 msgctxt "Plugin Setting Section Title"
 msgid "Cloudflare Beacon"
 msgstr "Cloudflare Beacon"
 
-#: includes/modules/thirdparty/class-cloudflare.php:288
+#: includes/modules/thirdparty/class-cloudflare.php:338
 msgctxt "Plugin Setting Section Description"
 msgid "This adds the Cloudflare Beacon tracking code on each page when enabled"
 msgstr ""
 "Hiermee wordt de Cloudflare Beacon tracking code op elke pagina toegevoegd "
 "wanneer deze is ingeschakeld"
 
-#: includes/modules/thirdparty/class-cloudflare.php:308
-#: includes/modules/thirdparty/class-googletag.php:144
+#: includes/modules/thirdparty/class-cloudflare.php:358
+#: includes/modules/thirdparty/class-googletag.php:179
 msgctxt "Plugin Setting Label"
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
-#: includes/modules/thirdparty/class-cloudflare.php:320
+#: includes/modules/thirdparty/class-cloudflare.php:370
 msgctxt "Plugin Setting Label"
 msgid "Beacon ID"
 msgstr "Beacon ID"
 
-#: includes/modules/thirdparty/class-googletag.php:123
+#: includes/modules/thirdparty/class-googletag.php:158
 msgctxt "Plugin Setting Section Title"
 msgid "Google Tag ID"
 msgstr "Google Tag ID"
 
-#: includes/modules/thirdparty/class-googletag.php:124
+#: includes/modules/thirdparty/class-googletag.php:159
 msgctxt "Plugin Setting Section Description"
 msgid "This adds the Google Tag tracking code on each page when enabled"
 msgstr ""
 "Hiermee wordt de tracking code voor Google Tags op elke pagina toegevoegd "
 "wanneer deze is ingeschakeld"
 
-#: includes/modules/thirdparty/class-googletag.php:156
+#: includes/modules/thirdparty/class-googletag.php:191
 msgctxt "Plugin Setting Label"
 msgid "Google Tag ID"
 msgstr "Google Tag ID"

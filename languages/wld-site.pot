@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WLD Site Platform\n"
-"POT-Creation-Date: 2023-08-16 15:50+1200\n"
+"POT-Creation-Date: 2023-12-23 16:29+1300\n"
 "PO-Revision-Date: 2023-04-16 13:54+1200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: wld-site.php\n"
@@ -345,7 +345,7 @@ msgid ""
 "target=\"_blank\">%2$s</a><p>The %1$s team</p>"
 msgstr ""
 
-#: includes/modules/class-testing.php:44
+#: includes/modules/class-testing.php:41
 msgid "Testing"
 msgstr ""
 
@@ -365,25 +365,25 @@ msgid "Translations"
 msgstr ""
 
 #: includes/modules/class-wpupdates.php:84
-#: includes/modules/thirdparty/class-cloudflare.php:313
-#: includes/modules/thirdparty/class-googletag.php:149
+#: includes/modules/thirdparty/class-cloudflare.php:363
+#: includes/modules/thirdparty/class-googletag.php:184
 msgctxt "Plugin Setting Radio Label"
 msgid "Yes"
 msgstr ""
 
 #: includes/modules/class-wpupdates.php:85
-#: includes/modules/thirdparty/class-cloudflare.php:314
-#: includes/modules/thirdparty/class-googletag.php:150
+#: includes/modules/thirdparty/class-cloudflare.php:364
+#: includes/modules/thirdparty/class-googletag.php:185
 msgctxt "Plugin Setting Radio Label"
 msgid "No"
 msgstr ""
 
-#: includes/modules/hosting/class-flywheel.php:84
+#: includes/modules/hosting/class-flywheel.php:131
 msgctxt "Shown in WP Admin Updates page title"
 msgid "WordPress Core"
 msgstr ""
 
-#: includes/modules/hosting/class-flywheel.php:86
+#: includes/modules/hosting/class-flywheel.php:133
 msgctxt "Shown in WP Admin Updates page"
 msgid ""
 "Your service provider automatically updates sites to the latest version of "
@@ -392,43 +392,43 @@ msgid ""
 "activity and malware."
 msgstr ""
 
-#: includes/modules/hosting/class-flywheel.php:99
+#: includes/modules/hosting/class-flywheel.php:146
 msgctxt "Shown underneath the Site URL field in Settings>General"
 msgid "This field is managed by your service provider."
 msgstr ""
 
-#: includes/modules/thirdparty/class-cloudflare.php:287
+#: includes/modules/thirdparty/class-cloudflare.php:337
 msgctxt "Plugin Setting Section Title"
 msgid "Cloudflare Beacon"
 msgstr ""
 
-#: includes/modules/thirdparty/class-cloudflare.php:288
+#: includes/modules/thirdparty/class-cloudflare.php:338
 msgctxt "Plugin Setting Section Description"
 msgid "This adds the Cloudflare Beacon tracking code on each page when enabled"
 msgstr ""
 
-#: includes/modules/thirdparty/class-cloudflare.php:308
-#: includes/modules/thirdparty/class-googletag.php:144
+#: includes/modules/thirdparty/class-cloudflare.php:358
+#: includes/modules/thirdparty/class-googletag.php:179
 msgctxt "Plugin Setting Label"
 msgid "Enabled"
 msgstr ""
 
-#: includes/modules/thirdparty/class-cloudflare.php:320
+#: includes/modules/thirdparty/class-cloudflare.php:370
 msgctxt "Plugin Setting Label"
 msgid "Beacon ID"
 msgstr ""
 
-#: includes/modules/thirdparty/class-googletag.php:123
+#: includes/modules/thirdparty/class-googletag.php:158
 msgctxt "Plugin Setting Section Title"
 msgid "Google Tag ID"
 msgstr ""
 
-#: includes/modules/thirdparty/class-googletag.php:124
+#: includes/modules/thirdparty/class-googletag.php:159
 msgctxt "Plugin Setting Section Description"
 msgid "This adds the Google Tag tracking code on each page when enabled"
 msgstr ""
 
-#: includes/modules/thirdparty/class-googletag.php:156
+#: includes/modules/thirdparty/class-googletag.php:191
 msgctxt "Plugin Setting Label"
 msgid "Google Tag ID"
 msgstr ""

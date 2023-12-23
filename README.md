@@ -1,6 +1,6 @@
 # WLD Site Plugin
 
-![Support Level](https://img.shields.io/badge/support-active-green.svg) ![WordPress tested up to version](https://img.shields.io/badge/WordPress-v6.3%20tested-success.svg) ![PHP tested with version](https://img.shields.io/badge/PHP-v8.1%20tested-success.svg)
+![Support Level](https://img.shields.io/badge/support-active-green.svg) ![WordPress tested up to version](https://img.shields.io/badge/WordPress-v6.4%20tested-success.svg) ![PHP tested with version](https://img.shields.io/badge/PHP-v8.1%20tested-success.svg)
 
 > This plugin configures WordPress to better protect sites with a default set of functions and features. This plugin is not meant for general-distribution, but is available for public perusal.
 
@@ -102,6 +102,7 @@ There is 1 filter available for this
 #### Flatsome Theme
 
 - Removes Admin Bar Items
+- Removes Site Health Check
 
 There is 1 filter available for this
 - `wlds_flatsome_admin_bar_remove` - (bool) default value `TRUE`
@@ -123,6 +124,10 @@ There is 1 filter available for this
 #### WP Rocket
 
 - Disables HTML Comments
+- Disable Preloading for some Hosting providers
+
+There is 1 filter available for this
+- `wlds_wprocket_disable_preload` - (bool) default value `FALSE`
 
 #### Yoast SEO
 
