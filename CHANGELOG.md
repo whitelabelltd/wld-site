@@ -1,3 +1,9 @@
+## [1.0.9] - 2023-12-23
+- Added: Support for Rocket.Net hosting
+- Added: Compatibility for Rocket.Net and WP-Rocket Plugin
+- Fixed: WP Health Check compatibility with Flatsome Theme
+- Updated: PO and MO Files
+
 ## [1.0.8] - 2023-09-02
 - Added: WP Health Check compatibility for Flywheel and SpinupWP hosting
 -

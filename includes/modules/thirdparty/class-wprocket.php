@@ -25,6 +25,16 @@ class WPRocket extends Modules {
 	 */
 	public function init() : void {
 		$this->whitelabel_wp_rocket();
+		$this->maybe_disable_preload();
+	}
+
+	/**
+	 * Init Hooks
+	 *
+	 * @inheritDoc
+	 */
+	public function hooks() {
+		// Empty.
 	}
 
 	/**
@@ -39,12 +49,16 @@ class WPRocket extends Modules {
 	}
 
 	/**
-	 * Init Hooks
+	 * Disables the Pre-Load Option for WP-Rocket
+	 * source https://docs.wp-rocket.me/article/1564-list-of-pre-get-rocket-option-filters.
 	 *
-	 * @inheritDoc
+	 * @return void
 	 */
-	public function hooks() {
-		// Left blank.
+	public function maybe_disable_preload() {
+		if ( apply_filters( 'wlds_wprocket_disable_preload', false ) ) {
+			add_filter( 'pre_get_rocket_option_manual_preload', '__return_zero' );
+			add_filter( 'pre_get_rocket_option_preload_links', '__return_zero' );
+		}
 	}
 }
 new WPRocket();

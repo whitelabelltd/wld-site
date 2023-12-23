@@ -69,7 +69,10 @@ class Core {
 		// Hosting Platform Modules.
 		$this->load_modules_hosting(
 			array(
+				// Flywheel Hosting.
 				'flywheel',
+				// Rocket.Net Hosting.
+				'rocketnet',
 			)
 		);
 		// spinupwp, cloudways.

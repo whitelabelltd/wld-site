@@ -15,6 +15,28 @@ use WLDS\Modules;
 class Flatsome extends Modules {
 
 	/**
+	 * Init
+	 *
+	 * @return void
+	 */
+	public function init() {
+		add_filter( 'site_status_tests', array( $this, 'remove_health_check_flatsome' ), 9 );
+	}
+
+	/**
+	 * Removes an item from the health check.
+	 *
+	 * @param mixed $tests WP Health Tests.
+	 *
+	 * @return mixed
+	 */
+	public function remove_health_check_flatsome( $tests ) {
+		// Remove Site Health Check.
+		remove_filter( 'site_status_tests', 'flatsome_site_status_tests' );
+		return $tests;
+	}
+
+	/**
 	 * Init Hooks.
 	 *
 	 * @return void
