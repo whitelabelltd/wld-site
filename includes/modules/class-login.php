@@ -29,11 +29,34 @@ class Login extends Modules {
 	/**
 	 * Replaces login error message with a generic one
 	 *
+	 * @param string $error Error Message.
+	 *
 	 * @return string
 	 */
-	public function hide_login_errors() {
+	public function hide_login_errors( $error ) {
+		global $errors;
+
+		// Set Default Error Text.
 		/* translators: Login, invalid details entered */
-		return esc_html_x( 'ERROR: Invalid Login Details', 'WP Login Error Message', 'wld-site' );
+		$wld_site_error = sprintf( '<strong>%s</strong>&nbsp;%s', __( 'ERROR:', 'wld-site' ), __( 'Invalid Login Details', 'wld-site' ) );
+
+		// Bail early.
+		if ( ! $errors ) {
+			return $wld_site_error;
+		}
+
+		// Grab Error Codes.
+		$err_codes = $errors->get_error_codes();
+
+		// Invalid username or password.
+		if ( in_array( 'invalid_username', $err_codes, true ) ||
+			in_array( 'incorrect_password', $err_codes, true )
+		) {
+			$error = $wld_site_error;
+		}
+
+		// Other Error, Return that instead.
+		return $error;
 	}
 }
 new Login();
