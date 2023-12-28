@@ -34,7 +34,8 @@ class WPRocket extends Modules {
 	 * @inheritDoc
 	 */
 	public function hooks() {
-		// Empty.
+		// Removes the Powered By HTTP Header.
+		add_filter( 'rocket_htaccess_files_match', array( $this, 'remove_powered_by_header' ) );
 	}
 
 	/**
@@ -59,6 +60,17 @@ class WPRocket extends Modules {
 			add_filter( 'pre_get_rocket_option_manual_preload', '__return_zero' );
 			add_filter( 'pre_get_rocket_option_preload_links', '__return_zero' );
 		}
+	}
+
+	/**
+	 * Removes the Powered By HTTP Header
+	 *
+	 * @param string $rules Rules.
+	 *
+	 * @return string
+	 */
+	public function remove_powered_by_header( $rules ) {
+		return str_replace( 'Header set X-Powered-By "WP Rocket/' . WP_ROCKET_VERSION . '"' . PHP_EOL, '', $rules );
 	}
 }
 new WPRocket();

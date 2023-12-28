@@ -1,3 +1,8 @@
+## [1.1.0] - 2023-12-28
+- Updated: Removed 'Powered-By' HTTP Header for WP-Rocket
+- Fixed: WP Login Error messages not showing when not the WP Defaults
+- Updated: PO and MO Files
+
 ## [1.0.9] - 2023-12-23
 - Added: Support for Rocket.Net hosting
 - Added: Compatibility for Rocket.Net and WP-Rocket Plugin
@@ -6,7 +11,7 @@
 
 ## [1.0.8] - 2023-09-02
 - Added: WP Health Check compatibility for Flywheel and SpinupWP hosting
--
+
 ## [1.0.7] - 2023-08-26
 - Updated: Cloudflare Beacon code now uses core functions
 - Updated: Requires WordPress 6.3 or above

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WLD Site Platform\n"
-"POT-Creation-Date: 2023-12-23 16:29+1300\n"
+"POT-Creation-Date: 2023-12-28 17:06+1300\n"
 "PO-Revision-Date: 2023-04-16 13:54+1200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -94,9 +94,12 @@ msgid "Publicly accessible"
 msgstr ""
 
 #. translators: Login, invalid details entered
-#: includes/modules/class-login.php:36
-msgctxt "WP Login Error Message"
-msgid "ERROR: Invalid Login Details"
+#: includes/modules/class-login.php:41
+msgid "ERROR:"
+msgstr ""
+
+#: includes/modules/class-login.php:41
+msgid "Invalid Login Details"
 msgstr ""
 
 #: includes/modules/class-options.php:315
