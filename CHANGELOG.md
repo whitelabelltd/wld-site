@@ -1,3 +1,6 @@
+## [1.1.1] - 2024-01-02
+- Updated: Specific hosting platform optimisations
+
 ## [1.1.0] - 2023-12-28
 - Updated: Removed 'Powered-By' HTTP Header for WP-Rocket
 - Fixed: WP Login Error messages not showing when not the WP Defaults
