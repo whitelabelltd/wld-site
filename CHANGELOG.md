@@ -1,3 +1,6 @@
+## [1.1.2] - 2024-02-24
+- Removed: [NoReturn] from functions due to WP-CLI errors with lower PHP Versions
+
 ## [1.1.1] - 2024-01-02
 - Updated: Specific hosting platform optimisations
 

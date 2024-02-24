@@ -345,7 +345,7 @@ class Support extends Modules {
 	 * @param string $message the error text.
 	 * @return void
 	 */
-	#[NoReturn] protected function send_error( $message ) {
+	protected function send_error( $message ) {
 		// phpcs:disable
 		wp_send_json_error(
 			array(

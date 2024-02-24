@@ -291,7 +291,7 @@ class Speed extends Modules {
 	 *
 	 * @return void
 	 */
-	#[NoReturn] public function disable_rss_feed() {
+	public function disable_rss_feed() {
 		// phpcs:disable
 		wp_die( esc_html( _x( 'No feed available', 'RSS Feed disabled message', 'wld-site' ) ), '', array( 'response' => 404 ) );
 		// phpcs:enable
