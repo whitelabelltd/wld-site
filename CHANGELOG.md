@@ -1,3 +1,6 @@
+## [1.1.3] - 2025-01-01
+- Updated: Composer package updated, removed unlink and replaced with WP function
+
 ## [1.1.2] - 2024-02-24
 - Removed: [NoReturn] from functions due to WP-CLI errors with lower PHP Versions
 
