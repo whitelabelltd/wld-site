@@ -42,7 +42,7 @@ class Api extends Modules {
 	 * @param array $defaults Option defaults.
 	 * @return array
 	 */
-	public function option_defaults( $defaults ) : array {
+	public function option_defaults( $defaults ): array {
 		$defaults['restrict_rest_api'] = 'users';
 		return $defaults;
 	}

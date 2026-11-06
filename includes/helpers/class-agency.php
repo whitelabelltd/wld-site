@@ -42,7 +42,7 @@ class Agency {
 	 * @param int $user_id WP User ID.
 	 * @return bool
 	 */
-	public static function is_member( $user_id = 0 ) : bool {
+	public static function is_member( $user_id = 0 ): bool {
 		if ( function_exists( 'wp_get_current_user' ) ) {
 
 			// Get current user email.
@@ -117,7 +117,7 @@ class Agency {
 	 *
 	 * @return bool
 	 */
-	public static function is_member_or_admin() : bool {
+	public static function is_member_or_admin(): bool {
 		if ( current_user_can( 'activate_plugins' ) ||
 			( self::is_member() && current_user_can( 'delete_pages' ) ) ) {
 			return true;
@@ -131,7 +131,7 @@ class Agency {
 	 *
 	 * @return bool
 	 */
-	public static function is_member_editor_plus() : bool {
+	public static function is_member_editor_plus(): bool {
 		if ( current_user_can( 'delete_pages' ) &&
 			self::is_member()
 		) {

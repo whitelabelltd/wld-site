@@ -80,7 +80,7 @@ class Support extends Modules {
 	 *
 	 * @return void
 	 */
-	public function handle_form_sending() : void {
+	public function handle_form_sending(): void {
 		// Check Ajax Action Nonce.
 		if ( 1 === check_admin_referer( $this->action_name, 'security' ) ) {
 
@@ -248,7 +248,7 @@ class Support extends Modules {
 	 *
 	 * @return void
 	 */
-	public function add_js() : void {
+	public function add_js(): void {
 		// Register Tingle JS.
 		wp_register_script( 'tingle', $this->get_url_js( 'tingle.min' ), array( 'jquery-core' ), '0.16.0', true );
 
@@ -279,7 +279,7 @@ class Support extends Modules {
 	 *
 	 * @return void
 	 */
-	public function add_css() : void {
+	public function add_css(): void {
 		wp_register_style( 'tingle', $this->get_url_css( 'tingle.min' ), array(), '0.16.0' );
 		wp_enqueue_style( 'tingle' );
 	}
@@ -297,7 +297,7 @@ class Support extends Modules {
 		wp_add_dashboard_widget(
 			$widget_support_id,
 			_x( 'Welcome', 'Support widget title', 'wld-site' ),
-			function() {
+			function () {
 
 				// Default Values.
 				$name  = $this->get_extra_option( 'managed_by_name' );
@@ -323,7 +323,6 @@ class Support extends Modules {
 					$support
 				);
 				// phpcs:enable
-
 			}
 		);
 

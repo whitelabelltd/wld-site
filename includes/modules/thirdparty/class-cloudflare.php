@@ -77,7 +77,7 @@ class Cloudflare extends Modules {
 	 *
 	 * @return void
 	 */
-	public function maybe_set_real_ip() : void {
+	public function maybe_set_real_ip(): void {
 
 		// Running in a local environment? Bail Early.
 		if ( $this->is_local_env() ) {
@@ -262,7 +262,7 @@ class Cloudflare extends Modules {
 	 *
 	 * @return bool
 	 */
-	protected function wp_rocket_cloudflare_enabled() : bool {
+	protected function wp_rocket_cloudflare_enabled(): bool {
 		if ( function_exists( 'rocket_set_real_ip_cloudflare' ) ) {
 			return true;
 		}
@@ -314,7 +314,7 @@ class Cloudflare extends Modules {
 	 *
 	 * @return array|false
 	 */
-	protected function get_ips() : mixed {
+	protected function get_ips(): mixed {
 
 		$ips = get_option( $this->option_name );
 		if ( $ips ) {
@@ -329,7 +329,7 @@ class Cloudflare extends Modules {
 	 * @param array $defaults default options.
 	 * @return array
 	 */
-	public function option_defaults( $defaults ) : array {
+	public function option_defaults( $defaults ): array {
 
 		$defaults['cloudflare_beacon_enable'] = 'no';
 		$defaults['cloudflare_beacon_id']     = '';

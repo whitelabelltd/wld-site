@@ -34,7 +34,7 @@ class ManageWP extends Modules {
 	 *
 	 * @return void
 	 */
-	public function hide_notices() : void {
+	public function hide_notices(): void {
 		if ( function_exists( 'mwp_core' ) ) {
 			$class = \mwp_core();
 			remove_action( 'admin_notices', array( $class, 'admin_notice' ) );

@@ -91,10 +91,10 @@ class Email extends Modules {
 	 *
 	 * @return bool
 	 */
-	public function disable_new_user_admin_email( $send, $user ) : bool {
+	public function disable_new_user_admin_email( $send, $user ): bool {
 		if ( $send &&
 			$user &&
-			! user_can( $user, 'administrator' )
+			! user_can( $user, 'manage_options' )
 		) {
 			return false;
 		}
@@ -154,7 +154,7 @@ class Email extends Modules {
 	 * @return array
 	 */
 	public function stop_password_change_notifications_for_customers( $wp_password_change_notification_email, $user, $blogname ) {
-		if ( user_can( $user, 'administrator' ) ||
+		if ( user_can( $user, 'manage_options' ) ||
 			user_can( $user, 'manage_woocommerce' )
 		) {
 			return $wp_password_change_notification_email;

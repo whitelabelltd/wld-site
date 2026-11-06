@@ -63,7 +63,7 @@ class Options extends Modules {
 	/**
 	 * Register settings
 	 */
-	public function register_settings() : void {
+	public function register_settings(): void {
 
 		// Slug for the Options Page.
 		$options_page = $this->option_page_slug;

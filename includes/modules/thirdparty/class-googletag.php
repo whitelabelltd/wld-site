@@ -38,7 +38,7 @@ class GoogleTag extends Modules {
 	 *
 	 * @return void
 	 */
-	public function hooks() :void {
+	public function hooks(): void {
 
 		// Add Options.
 		add_filter( 'wlds_options_sections', array( $this, 'option_add_section' ), 10, 1 );
@@ -80,7 +80,7 @@ class GoogleTag extends Modules {
 	/**
 	 * Adds Google Tag Manager code in <head> below the <title>.
 	 */
-	public function google_tag_manager_head() :void {
+	public function google_tag_manager_head(): void {
 		$value = $this->is_enabled();
 		if ( ! $value ) {
 			return;
@@ -117,7 +117,7 @@ class GoogleTag extends Modules {
 	/**
 	 * Adds Google Tag Manager code immediately after the opening <body> tag.
 	 */
-	public function google_tag_manager_body() : void {
+	public function google_tag_manager_body(): void {
 		$value = $this->is_enabled();
 		if ( ! $value ) {
 			return;
@@ -137,7 +137,7 @@ class GoogleTag extends Modules {
 	 * @param array $defaults default options.
 	 * @return array
 	 */
-	public function option_defaults( $defaults ) : array {
+	public function option_defaults( $defaults ): array {
 
 		$defaults['google_tag_enable'] = 'no';
 		$defaults['google_tag_id']     = '';

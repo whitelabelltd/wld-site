@@ -23,7 +23,7 @@ class WooCommerce extends Modules {
 	 *
 	 * @return void
 	 */
-	public function hooks() : void {
+	public function hooks(): void {
 		// Disable Marketplace Suggestions.
 		add_filter( 'woocommerce_allow_marketplace_suggestions', '__return_false' );
 	}

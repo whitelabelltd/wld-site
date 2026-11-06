@@ -70,7 +70,7 @@ class Cloudways extends Modules {
 	 *
 	 * @return bool
 	 */
-	protected function is_environment() : bool {
+	protected function is_environment(): bool {
 		$document_root = isset( $_SERVER['DOCUMENT_ROOT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['DOCUMENT_ROOT'] ) ) : '';
 		if ( str_contains( $document_root, 'cloudwaysapps.com' ) ) {
 			return true;

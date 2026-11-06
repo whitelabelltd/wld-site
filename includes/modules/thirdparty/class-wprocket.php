@@ -23,7 +23,7 @@ class WPRocket extends Modules {
 	 *
 	 * @return void
 	 */
-	public function init() : void {
+	public function init(): void {
 		$this->whitelabel_wp_rocket();
 		$this->maybe_disable_preload();
 	}

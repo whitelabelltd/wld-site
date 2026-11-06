@@ -33,7 +33,7 @@ class Flywheel extends Modules {
 	 *
 	 * @return void
 	 */
-	public function hooks() : void {
+	public function hooks(): void {
 
 		// Are we running on the Flywheel Platform?
 		if ( $this->is_flywheel_environment() ) {
@@ -119,7 +119,7 @@ class Flywheel extends Modules {
 	 *
 	 * @param string $hook WP Hook.
 	 */
-	public function whitelabel_admin_js( $hook ) : void {
+	public function whitelabel_admin_js( $hook ): void {
 
 		if ( 'update-core.php' === $hook ) {
 				wp_register_script( 'wlds_flywheel_update_core', $this->get_url_js( 'wlds-admin-flywheel-core.min' ), array( 'jquery-core' ), $this->get_resource_version(), true );
@@ -155,7 +155,7 @@ class Flywheel extends Modules {
 	 *
 	 * @return bool
 	 */
-	protected function is_flywheel_environment() : bool {
+	protected function is_flywheel_environment(): bool {
 		$server_software = isset( $_SERVER['SERVER_SOFTWARE'] ) ? sanitize_text_field( wp_unslash( $_SERVER['SERVER_SOFTWARE'] ) ) : '';
 		if ( str_contains( $server_software, 'Flywheel' ) ) {
 			return true;

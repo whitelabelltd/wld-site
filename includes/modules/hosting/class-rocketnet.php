@@ -78,7 +78,7 @@ class RocketNet extends Modules {
 	 *
 	 * @return bool
 	 */
-	protected function is_environment() : bool {
+	protected function is_environment(): bool {
 
 		// Check for specific variables.
 		if ( defined( 'CDN_SITE_TOKEN' ) && defined( 'CDN_SITE_ID' ) ) {

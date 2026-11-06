@@ -23,7 +23,7 @@ class Dashboard extends Modules {
 	 *
 	 * @inheritDoc
 	 */
-	public function hooks() : void {
+	public function hooks(): void {
 		add_action( 'admin_menu', array( $this, 'remove_widgets' ) );
 	}
 
@@ -32,7 +32,7 @@ class Dashboard extends Modules {
 	 *
 	 * @return void
 	 */
-	public function remove_widgets() : void {
+	public function remove_widgets(): void {
 		// Remove WordPress Events and News.
 		remove_meta_box( 'dashboard_primary', 'dashboard', 'core' );
 	}

@@ -72,7 +72,7 @@ class Security extends Modules {
 	 *
 	 * @return void
 	 */
-	public function xmlrpc_return_404() : void {
+	public function xmlrpc_return_404(): void {
 		// Check if we are trying to load the page.
 		$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
 		if ( str_contains( strtolower( $request_uri ), 'xmlrpc.php' ) ) {
@@ -146,7 +146,6 @@ class Security extends Modules {
 		);
 
 		return $fields;
-
 	}
 
 	/**
@@ -155,7 +154,7 @@ class Security extends Modules {
 	 * @param array $defaults Option Defaults.
 	 * @return array
 	 */
-	public function option_defaults( $defaults ) : array {
+	public function option_defaults( $defaults ): array {
 
 		$defaults['disable_xmlrpc'] = 'yes';
 

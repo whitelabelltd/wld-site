@@ -34,7 +34,6 @@ class Spinupwp extends Modules {
 	 * @return void
 	 */
 	public function hooks() {
-
 	}
 
 	/**
@@ -42,7 +41,7 @@ class Spinupwp extends Modules {
 	 *
 	 * @return bool
 	 */
-	protected function is_spinup_environment() : bool {
+	protected function is_spinup_environment(): bool {
 		// phpcs:disable
 		if (isset($_SERVER['SPINUPWP_SITE']) &&
 		    isset($_SERVER['SPINUPWP_LOG_PATH']) &&

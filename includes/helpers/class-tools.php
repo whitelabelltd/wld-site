@@ -53,13 +53,11 @@ class Tools {
 			if ( 'local' === wp_get_environment_type() ) {
 				return true;
 			}
-		} else {
-			if ( isset( $_SERVER['SERVER_NAME'] ) ) {
+		} elseif ( isset( $_SERVER['SERVER_NAME'] ) ) {
 				// phpcs:disable
 				if ( str_contains( $_SERVER['SERVER_NAME'], '.local' ) ) {
-					// phpcs:enable
-					return true;
-				}
+				// phpcs:enable
+				return true;
 			}
 		}
 		return false;
@@ -71,7 +69,7 @@ class Tools {
 	 * @param string $email Email Address to be set for site admin.
 	 * @return bool
 	 */
-	public static function set_site_admin_email( $email = '' ) : bool {
+	public static function set_site_admin_email( $email = '' ): bool {
 		if ( $email &&
 			is_email( $email )
 		) {
@@ -128,7 +126,7 @@ class Tools {
 	 *
 	 * @return void
 	 */
-	public static function set_site_language( $locale = '', $timezone_string = '' ) : void {
+	public static function set_site_language( $locale = '', $timezone_string = '' ): void {
 		if ( $locale && $timezone_string ) {
 
 			// Get current Locale.

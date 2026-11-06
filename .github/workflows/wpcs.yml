@@ -5,13 +5,13 @@ jobs:
     name: WPCS
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
       - name: WPCS check
         uses: 10up/wpcs-action@stable
         with:
           enable_warnings: false # Enable checking for warnings (-w)
           paths: '.' # Paths to check, space separated
-          excludes: 'vendor _source docs assets languages .github test' # Paths to excludes, space separated
+          excludes: '_source,docs,assets,languages,.github,test' # Paths to exclude, COMMA separated (passed straight to phpcs --ignore; vendor and node_modules are always added by the action)
           standard: 'WordPress' # Standard to use. Accepts WordPress|WordPress-Core|WordPress-Docs|WordPress-Extra|WordPress-VIP-Go|WordPressVIPMinimum|10up-Default.
           standard_repo: '' # Public (git) repository URL of the coding standard
           repo_branch: 'master' # Branch of Standard repository

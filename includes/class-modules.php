@@ -51,7 +51,7 @@ abstract class Modules {
 	 * @param int $user_id WP User ID.
 	 * @return bool
 	 */
-	protected function is_agency_member( $user_id = 0 ) : bool {
+	protected function is_agency_member( $user_id = 0 ): bool {
 		return Agency::is_member( $user_id );
 	}
 
@@ -80,7 +80,7 @@ abstract class Modules {
 	 *
 	 * @return string
 	 */
-	protected function get_resource_version() : string {
+	protected function get_resource_version(): string {
 		if ( $this->is_local_env() ) {
 			try {
 				return (string) random_int( 10, 1000 );
@@ -96,7 +96,7 @@ abstract class Modules {
 	 *
 	 * @return bool
 	 */
-	protected function is_local_env() : bool {
+	protected function is_local_env(): bool {
 		return Tools::is_local_env();
 	}
 
@@ -126,7 +126,7 @@ abstract class Modules {
 	 * @param string $setting_name Setting Name.
 	 * @return bool
 	 */
-	protected function is_setting_enabled( $setting_name = '' ) : bool {
+	protected function is_setting_enabled( $setting_name = '' ): bool {
 		$value = $this->get_setting( $setting_name );
 		if ( 'yes' === $value ) {
 			return true;

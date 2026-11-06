@@ -65,7 +65,7 @@ register_deactivation_hook( __FILE__, 'WLDS\_wlds_deactivate' );
  *
  * @return void
  */
-function _wlds_deactivate() : void {
+function _wlds_deactivate(): void {
 
 	// Holds the Cron Hooks to remove.
 	$cron_hooks = array(
@@ -91,7 +91,7 @@ function _wlds_deactivate() : void {
  * @param string $dir Directory holding the file.
  * @return array|null Decoded data, or null when there is no (valid) file.
  */
-function _wlds_read_client_file( string $dir ) : ?array {
+function _wlds_read_client_file( string $dir ): ?array {
 	$file = trailingslashit( $dir ) . 'client.json';
 	if ( ! file_exists( $file ) ) {
 		return null;
@@ -122,7 +122,7 @@ function _wlds_read_client_file( string $dir ) : ?array {
 /**
  * Plugin activation: load extra settings from the client file if found.
  */
-function _wlds_activate() : void {
+function _wlds_activate(): void {
 	$file_data = _wlds_read_client_file( plugin_dir_path( WLDS_FILE ) );
 	if ( $file_data ) {
 		Tools::set_json_options( $file_data );
@@ -132,7 +132,7 @@ function _wlds_activate() : void {
 /**
  * Updater
  */
-function _wlds_updater() : void {
+function _wlds_updater(): void {
 	// Only Run when not in a local environment.
 	if ( ! Tools::is_local_env() ) {
 		// Init Updater.

@@ -40,7 +40,7 @@ class WPUpdates extends Modules {
 	 * @param array $defaults Option defaults.
 	 * @return array
 	 */
-	public function option_defaults( $defaults ) : array {
+	public function option_defaults( $defaults ): array {
 		$defaults['wp_update_translations'] = 'yes';
 		return $defaults;
 	}

@@ -31,7 +31,7 @@ class Speed extends Modules {
 	 *
 	 * @return void
 	 */
-	public function hooks() :void {
+	public function hooks(): void {
 
 		// Add Options.
 		add_filter( 'wlds_options_sections', array( $this, 'option_add_section' ), 10, 1 );
@@ -86,7 +86,7 @@ class Speed extends Modules {
 	 * @param array $defaults Option Defaults.
 	 * @return array
 	 */
-	public function option_defaults( $defaults ) : array {
+	public function option_defaults( $defaults ): array {
 
 		$defaults['disable_wp_embeds']   = 'yes';
 		$defaults['disable_pingbacks']   = 'yes';
@@ -265,7 +265,6 @@ class Speed extends Modules {
 		remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
 		remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
 		remove_action( 'template_redirect', 'rest_output_link_header', 11 );
-
 	}
 
 	/**
@@ -273,7 +272,7 @@ class Speed extends Modules {
 	 *
 	 * @return void
 	 */
-	public function disable_rss() : void {
+	public function disable_rss(): void {
 		remove_action( 'wp_head', 'feed_links', 2 );
 		remove_action( 'wp_head', 'feed_links_extra', 3 );
 
