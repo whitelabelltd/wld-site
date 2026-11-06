@@ -12,6 +12,10 @@
 		<exclude-pattern>/assets/*</exclude-pattern>
 		<!-- Exclude the Assets Source directory. -->
 		<exclude-pattern>/_source/*</exclude-pattern>
+		<!-- Exclude the WP-CLI test scripts. -->
+		<exclude-pattern>/test/*</exclude-pattern>
+		<!-- Exclude the Docs folder. -->
+		<exclude-pattern>/docs/*</exclude-pattern>
 		<!-- Exclude all index.php files. -->
 		<exclude-pattern>*/index.php</exclude-pattern>
 	</rule>

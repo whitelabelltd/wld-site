@@ -58,6 +58,7 @@ class Core {
 				'login',
 				'options',
 				'security',
+				'siteurl',
 				'speed',
 				'support',
 				'wpupdates',

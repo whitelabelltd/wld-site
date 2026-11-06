@@ -28,7 +28,7 @@ jobs:
           mv `ls | grep -v ${{ env.WP_PLUGIN_FOLDER }}` ${{ env.WP_PLUGIN_FOLDER }}/
           mv ${{ env.WP_PLUGIN_FILE }} ${{ env.WP_PLUGIN_FOLDER }}/${{ env.WP_PLUGIN_FILE }}
       - name: Zip Folder
-        run: zip -r release-${{ env.WP_PLUGIN_FOLDER }}.zip . -x "*.git/*" "*.github/*" "*.editorconfig" "*_source/*" "*config.codekit3" "*.gitignore" "*phpcs.xml" "*Testing.php" "*test/*" "*.DS_Store" "*README.md" "*CHANGELOG.md"
+        run: zip -r release-${{ env.WP_PLUGIN_FOLDER }}.zip . -x "*.git/*" "*.github/*" "*.editorconfig" "*_source/*" "*config.codekit3" "*.gitignore" "*phpcs.xml" "*Testing.php" "*test/*" "*docs/*" "*.DS_Store" "*README.md" "*CHANGELOG.md"
       - name: Cleanup Folders
         run: |
           cd ${{ env.WP_PLUGIN_FOLDER }}

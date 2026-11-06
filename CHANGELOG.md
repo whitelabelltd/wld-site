@@ -1,3 +1,6 @@
+## [1.1.4] - 2026-11-07
+- Added: WordPress Address and Site Address can only be changed by agency members
+
 ## [1.1.3] - 2025-01-01
 - Updated: Composer package updated, removed unlink and replaced with WP function
 

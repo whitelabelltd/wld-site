@@ -1,6 +1,6 @@
 # WLD Site Plugin
 
-![Support Level](https://img.shields.io/badge/support-active-green.svg) ![WordPress tested up to version](https://img.shields.io/badge/WordPress-v6.4%20tested-success.svg) ![PHP tested with version](https://img.shields.io/badge/PHP-v8.1%20tested-success.svg)
+![Support Level](https://img.shields.io/badge/support-active-green.svg) ![WordPress tested up to version](https://img.shields.io/badge/WordPress-v7.1%20tested-success.svg) ![PHP tested with version](https://img.shields.io/badge/PHP-v8.3%20tested-success.svg)
 
 > This plugin configures WordPress to better protect sites with a default set of functions and features. This plugin is not meant for general-distribution, but is available for public perusal.
 
@@ -33,6 +33,7 @@ There is 1 filter available for this
 - Removes the WordPress Events and News widget from the dashboard
 - Option to enable, If the WP User is NOT an agency user (see `client.json` below) this plugin cannot be de-activated accidentally
 - Removes some Core WP Admin Bar items (WP Logo and related items)
+- Disables Site URL changes unless the user is an agency member
 
 ### Email
 
