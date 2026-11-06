@@ -74,9 +74,8 @@ class Security extends Modules {
 	 */
 	public function xmlrpc_return_404() : void {
 		// Check if we are trying to load the page.
-		// phpcs:disable
-		if ( str_contains( strtolower( $_SERVER['REQUEST_URI'] ), 'xmlrpc.php' ) ) {
-			// phpcs:enable
+		$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+		if ( str_contains( strtolower( $request_uri ), 'xmlrpc.php' ) ) {
 
 			// Set 404 Headers.
 			global $wp_query;

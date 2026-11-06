@@ -29,7 +29,7 @@ class Api extends Modules {
 		add_filter( 'wlds_options_sections', array( $this, 'option_add_section' ), 15, 1 );
 		add_filter( 'wlds_options_setting_fields', array( $this, 'option_add_fields' ), 10, 1 );
 		add_filter( 'wlds_options_defaults', array( $this, 'option_defaults' ), 10, 1 );
-		add_filter( 'wlds_option_sanitize_rest_api_restrict', array( $this, 'validate_restrict_rest_api_setting' ), 10, 1 );
+		add_filter( 'wlds_option_sanitize_restrict_rest_api', array( $this, 'validate_restrict_rest_api_setting' ), 10, 1 );
 
 		// Make sure this runs somewhat late but before core's cookie auth at 100.
 		add_filter( 'rest_authentication_errors', array( $this, 'restrict_rest_api' ), 99 );
@@ -43,7 +43,7 @@ class Api extends Modules {
 	 * @return array
 	 */
 	public function option_defaults( $defaults ) : array {
-		$defaults['rest_api_restrict'] = 'users';
+		$defaults['restrict_rest_api'] = 'users';
 		return $defaults;
 	}
 
@@ -144,7 +144,7 @@ class Api extends Modules {
 	 * @return void
 	 */
 	public function restrict_rest_api_ui() {
-		$option_name = 'rest_api_restrict';
+		$option_name = 'restrict_rest_api';
 		$restrict    = $this->get_setting( $option_name );
 
 		?>

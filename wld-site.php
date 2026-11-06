@@ -3,7 +3,7 @@
  * Plugin Name:       WLD Site Platform
  * Plugin URI:        https://whitelabel.ltd
  * Description:       WLD Site configures WordPress with additional security and features
- * Version:           1.1.3
+ * Version:           1.1.4
  * Author:            Whitelabel Digital
  * Author URI:        https://whitelabel.ltd
  * Requires at least: 6.3
@@ -20,9 +20,9 @@
 namespace WLDS;
 
 use WLDS\Helper\Tools;
-use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+use YahnisElsts\PluginUpdateChecker\v6\PucFactory;
 
-define( 'WLDS_VERSION', '1.1.3' );
+define( 'WLDS_VERSION', '1.1.4' );
 define( 'WLDS_DIR', __DIR__ );
 define( 'WLDS_FILE', __FILE__ );
 if ( ! defined( 'WLDS_UPDATER_URL' ) ) {
@@ -84,25 +84,48 @@ function _wlds_deactivate() : void {
 }
 
 /**
- * Runs upon activation
+ * Read (and delete) the client.json import file.
  *
- * @return void
+ * The file is only deleted after it decodes to an array, so a malformed file is kept for an admin to fix.
+ *
+ * @param string $dir Directory holding the file.
+ * @return array|null Decoded data, or null when there is no (valid) file.
+ */
+function _wlds_read_client_file( string $dir ) : ?array {
+	$file = trailingslashit( $dir ) . 'client.json';
+	if ( ! file_exists( $file ) ) {
+		return null;
+	}
+
+	// phpcs:disable
+	$contents = file_get_contents( $file );
+	// phpcs:enable
+	if ( false === $contents ) {
+		return null;
+	}
+
+	// Strip a UTF-8 BOM if present.
+	if ( 0 === strncmp( $contents, "\xEF\xBB\xBF", 3 ) ) {
+		$contents = substr( $contents, 3 );
+	}
+
+	$data = json_decode( $contents, true );
+	if ( ! is_array( $data ) ) {
+		// Leave the file in place so an admin can fix it.
+		return null;
+	}
+
+	wp_delete_file( $file );
+	return $data;
+}
+
+/**
+ * Plugin activation: load extra settings from the client file if found.
  */
 function _wlds_activate() : void {
-	// Load Extra Settings if Found.
-	$file = plugin_dir_path( WLDS_FILE ) . 'client.json';
-	if ( file_exists( $file ) ) {
-
-		// Load File.
-		// phpcs:disable
-		$file_data = json_decode( file_get_contents( $file ), 1 );
-		// phpcs:enable
-
-		// Set the options.
+	$file_data = _wlds_read_client_file( plugin_dir_path( WLDS_FILE ) );
+	if ( $file_data ) {
 		Tools::set_json_options( $file_data );
-
-		// Remove the file.
-		wp_delete_file( $file );
 	}
 }
 

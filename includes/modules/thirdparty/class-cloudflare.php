@@ -146,6 +146,44 @@ class Cloudflare extends Modules {
 	}
 
 	/**
+	 * Builds the data-cf-beacon attribute, only for a valid beacon token.
+	 *
+	 * @param string $id Beacon ID.
+	 *
+	 * @return string Attribute (with trailing space) or empty string if invalid.
+	 */
+	public function get_beacon_attribute( string $id ): string {
+		if ( ! preg_match( '/^[a-f0-9]{32}$/', $id ) ) {
+			return '';
+		}
+		return "data-cf-beacon='" . esc_attr( wp_json_encode( array( 'token' => $id ) ) ) . "' ";
+	}
+
+	/**
+	 * Inserts the beacon attribute before the id attribute of the script tag (any quote style).
+	 *
+	 * @param string $tag Script tag.
+	 * @param string $id  Beacon ID.
+	 *
+	 * @return string
+	 */
+	public function add_beacon_attribute( string $tag, string $id ): string {
+		$attr = $this->get_beacon_attribute( $id );
+		if ( '' === $attr ) {
+			return $tag;
+		}
+		$result = preg_replace_callback(
+			'/\bid=(["\'])cf-beacon-js\1/',
+			static function ( $m ) use ( $attr ) {
+				return $attr . $m[0];
+			},
+			$tag,
+			1
+		);
+		return null === $result ? $tag : $result;
+	}
+
+	/**
 	 * Adds the CloudFlare Beacon Code Attribute
 	 *
 	 * @param string $tag Tag.
@@ -158,13 +196,7 @@ class Cloudflare extends Modules {
 		// Make sure its enabled and not running locally.
 		if ( 'cf-beacon' === $handle && ! $this->is_local_env() && $this->is_setting_enabled( 'cloudflare_beacon_enable' )
 		) {
-			$id = $this->get_setting( 'cloudflare_beacon_id' );
-			if ( $id ) {
-				$file     = sprintf( "id='%s-js'", $handle );
-				$file_add = sprintf( '{"token": "%s"}', $id );
-				$file_add = sprintf( "data-cf-beacon='%s' ", $file_add );
-				$tag      = str_replace( $file, $file_add . $file, $tag );
-			}
+			$tag = $this->add_beacon_attribute( $tag, (string) $this->get_setting( 'cloudflare_beacon_id' ) );
 		}
 		return $tag;
 	}
@@ -244,54 +276,35 @@ class Cloudflare extends Modules {
 	 */
 	protected function set_real_ip() {
 
-		$is_cf = isset( $_SERVER['HTTP_CF_CONNECTING_IP'] );
-		if ( ! $is_cf ) {
+		if ( ! isset( $_SERVER['HTTP_CF_CONNECTING_IP'] ) || ! isset( $_SERVER['REMOTE_ADDR'] ) ) {
 			return;
 		}
 
-		// only run this logic if the REMOTE_ADDR is populated, to avoid causing notices in CLI mode.
-		if ( isset( $_SERVER['REMOTE_ADDR'] ) ) {
+		$cf_ip = sanitize_text_field( wp_unslash( $_SERVER['HTTP_CF_CONNECTING_IP'] ) );
+		if ( false === filter_var( $cf_ip, FILTER_VALIDATE_IP ) ) {
+			return;
+		}
 
-			// Grab the Current Cloudflare Address Range.
-			$cf_ips_values = $this->get_ips();
-			if ( empty( $cf_ips_values ) ) {
-				return;
-			}
+		$remote_addr = sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) );
 
-			// Check if we are getting a IPv4 or IPv6 Address.
-			// phpcs:disable
-			if ( ! str_contains( $_SERVER['REMOTE_ADDR'], ':' ) ) {
-				// phpcs:enable
-				$cf_ip_ranges = $cf_ips_values['ipv4'] ?? '';
+		// Grab the Current Cloudflare Address Range.
+		$cf_ips_values = $this->get_ips();
+		if ( empty( $cf_ips_values ) || ! is_array( $cf_ips_values ) ) {
+			return;
+		}
 
-				// IPv4: Update the REMOTE_ADDR value if the current REMOTE_ADDR value is in the specified range.
-				foreach ( $cf_ip_ranges as $range ) {
-					// phpcs:disable
-					if ( IP::ipv4_in_range( $_SERVER['REMOTE_ADDR'], $range ) ) {
-						if ( $_SERVER['HTTP_CF_CONNECTING_IP'] ) {
-							$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
-						}
-						// phpcs:enable
-						break;
-					}
-				}
-			} else {
+		$is_ipv6      = str_contains( $remote_addr, ':' );
+		$cf_ip_ranges = $cf_ips_values[ $is_ipv6 ? 'ipv6' : 'ipv4' ] ?? array();
+		if ( ! is_array( $cf_ip_ranges ) ) {
+			return;
+		}
 
-				// IPv6: Update the REMOTE_ADDR value if the current REMOTE_ADDR value is in the specified range.
-				$cf_ip_ranges = $cf_ips_values['ipv6'];
-				// phpcs:disable
-				$ipv6         = IP::get_ipv6_full( $_SERVER['REMOTE_ADDR'] );
-				// phpcs:enable
-				foreach ( $cf_ip_ranges as $range ) {
-					if ( IP::ipv6_in_range( $ipv6, $range ) ) {
-						// phpcs:disable
-						if ( $_SERVER['HTTP_CF_CONNECTING_IP'] ) {
-							$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
-							// phpcs:enable
-						}
-						break;
-					}
-				}
+		// Update the REMOTE_ADDR value if the current REMOTE_ADDR value is in a Cloudflare range.
+		foreach ( $cf_ip_ranges as $range ) {
+			$in_range = $is_ipv6 ? IP::ipv6_in_range( $remote_addr, $range ) : IP::ipv4_in_range( $remote_addr, $range );
+			if ( $in_range ) {
+				$_SERVER['REMOTE_ADDR'] = $cf_ip;
+				break;
 			}
 		}
 	}

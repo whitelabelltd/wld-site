@@ -1,6 +1,6 @@
 	{
 	  "disable_plugin_deactivation": true,
-	  "agency_domains": [""],
+	  "agency_domains": [],
 	  "support_email_to": "",
 	  "managed_by_name": "",
 	  "managed_by_url": "",

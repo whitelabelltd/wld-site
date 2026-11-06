@@ -50,6 +50,7 @@ class Core {
 		$this->load_modules(
 			array(
 				'admin',
+				'agencyoptions',
 				'api',
 				'authors',
 				'dashboard',
@@ -58,6 +59,7 @@ class Core {
 				'login',
 				'options',
 				'security',
+				'siteurl',
 				'speed',
 				'support',
 				'wpupdates',

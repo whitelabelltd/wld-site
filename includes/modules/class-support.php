@@ -318,7 +318,7 @@ class Support extends Modules {
 				return printf(
 					$html,
 					esc_html( $name ),
-					esc_attr( $url ),
+					esc_url( $url ),
 					esc_html( $email ),
 					$support
 				);

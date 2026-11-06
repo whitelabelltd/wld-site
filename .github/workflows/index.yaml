@@ -3,12 +3,13 @@ on:
   push:
     branches:
       - release
-permissions: write-all
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - name: Set Plugin File
         run: |
           VER=$(grep -l ' * Plugin Folder:' *.php . 2>/dev/null | awk '{print $NF}')
@@ -28,7 +29,7 @@ jobs:
           mv `ls | grep -v ${{ env.WP_PLUGIN_FOLDER }}` ${{ env.WP_PLUGIN_FOLDER }}/
           mv ${{ env.WP_PLUGIN_FILE }} ${{ env.WP_PLUGIN_FOLDER }}/${{ env.WP_PLUGIN_FILE }}
       - name: Zip Folder
-        run: zip -r release-${{ env.WP_PLUGIN_FOLDER }}.zip . -x "*.git/*" "*.github/*" "*.editorconfig" "*_source/*" "*config.codekit3" "*.gitignore" "*phpcs.xml" "*Testing.php" "*test/*" "*.DS_Store" "*README.md" "*CHANGELOG.md"
+        run: zip -r release-${{ env.WP_PLUGIN_FOLDER }}.zip . -x "*.git/*" "*.github/*" "*.editorconfig" "*_source/*" "*config.codekit3" "*.gitignore" "*phpcs.xml" "*Testing.php" "*test/*" "*docs/*" "*.superpowers/*" "*client.json" "*.DS_Store" "*README.md" "*CHANGELOG.md"
       - name: Cleanup Folders
         run: |
           cd ${{ env.WP_PLUGIN_FOLDER }}
@@ -37,22 +38,10 @@ jobs:
           rm -rf ${{ env.WP_PLUGIN_FOLDER }}
           echo "Done"
       - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ env.WP_PLUGIN_VERSION }}
-          release_name: Release - v${{ env.WP_PLUGIN_VERSION }}
-          draft: false
-          prerelease: false
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./release-${{ env.WP_PLUGIN_FOLDER }}.zip
-          asset_name: release-${{ env.WP_PLUGIN_FOLDER }}-v${{ env.WP_PLUGIN_VERSION }}.zip
-          asset_content_type: application/zip
+          GH_TOKEN: ${{ github.token }}
+          # The .git folder is removed in the cleanup step, so name the repo explicitly.
+          GH_REPO: ${{ github.repository }}
+        run: |
+          mv release-${{ env.WP_PLUGIN_FOLDER }}.zip release-${{ env.WP_PLUGIN_FOLDER }}-v${{ env.WP_PLUGIN_VERSION }}.zip
+          gh release create "v${{ env.WP_PLUGIN_VERSION }}" "release-${{ env.WP_PLUGIN_FOLDER }}-v${{ env.WP_PLUGIN_VERSION }}.zip" --title "Release - v${{ env.WP_PLUGIN_VERSION }}" --target "${{ github.sha }}"

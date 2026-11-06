@@ -156,9 +156,8 @@ class Flywheel extends Modules {
 	 * @return bool
 	 */
 	protected function is_flywheel_environment() : bool {
-		// phpcs:disable
-		if (str_contains($_SERVER['SERVER_SOFTWARE'], 'Flywheel')) {
-			// phpcs:enable
+		$server_software = isset( $_SERVER['SERVER_SOFTWARE'] ) ? sanitize_text_field( wp_unslash( $_SERVER['SERVER_SOFTWARE'] ) ) : '';
+		if ( str_contains( $server_software, 'Flywheel' ) ) {
 			return true;
 		}
 		return false;
