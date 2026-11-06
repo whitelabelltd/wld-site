@@ -20,7 +20,7 @@
 namespace WLDS;
 
 use WLDS\Helper\Tools;
-use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+use YahnisElsts\PluginUpdateChecker\v6\PucFactory;
 
 define( 'WLDS_VERSION', '1.1.3' );
 define( 'WLDS_DIR', __DIR__ );
