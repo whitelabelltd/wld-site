@@ -91,6 +91,28 @@ class Agency {
 	}
 
 	/**
+	 * Does the email address belong to one of the agency domains?
+	 * Returns false when no agency domains are configured.
+	 *
+	 * @param string $email Email Address.
+	 * @return bool
+	 */
+	public static function is_agency_email( string $email ): bool {
+		$domain  = self::get_email_domain( trim( $email, " \n\r\t\v\0" ) );
+		$domains = self::get_agency_domains();
+		if ( ! $domain || empty( $domains ) || ! is_array( $domains ) ) {
+			return false;
+		}
+		$domains = array_map(
+			static function ( $item ) {
+				return is_string( $item ) ? strtolower( trim( $item, " \n\r\t\v\0" ) ) : '';
+			},
+			$domains
+		);
+		return in_array( strtolower( trim( $domain, " \n\r\t\v\0" ) ), $domains, true );
+	}
+
+	/**
 	 * Checks if the current user is an admin or a member of the agency
 	 *
 	 * @return bool

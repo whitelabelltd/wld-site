@@ -7,6 +7,7 @@
 
 namespace WLDS\Module;
 
+use WLDS\Helper\Agency;
 use WLDS\Modules;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -30,7 +31,7 @@ class Admin extends Modules {
 	 */
 	public function init() {
 		// Get Plugin Basename.
-		$this->plugin_basename = plugin_basename( trim( WLDS_FILE ) );
+		$this->plugin_basename = plugin_basename( trim( WLDS_FILE, " \n\r\t\v\0" ) );
 	}
 
 	/**
@@ -46,6 +47,9 @@ class Admin extends Modules {
 		// Add Plugin Action Links.
 		add_filter( "plugin_action_links_$this->plugin_basename", array( $this, 'plugin_action_links' ), 10, 4 );
 		add_filter( "plugin_action_links_$this->plugin_basename", array( $this, 'plugin_disable_deactivation' ), 15, 4 );
+
+		// Enforce disabled deactivation server-side (checked at call time).
+		add_filter( 'map_meta_cap', array( $this, 'block_deactivation_cap' ), 10, 4 );
 
 		// Plugin Whitelabel.
 		add_action( 'pre_current_active_plugins', array( $this, 'plugin_update_details' ) );
@@ -102,7 +106,7 @@ class Admin extends Modules {
 		}
 
 		// Add text footer to WP Admin.
-		$link = sprintf( '<a href="%s" target="_blank">%s</a>', $author_url, esc_html( $author_name ) );
+		$link = sprintf( '<a href="%s" target="_blank">%s</a>', esc_url( $author_url ), esc_html( $author_name ) );
 		/* translators: WP Admin footer text to author link */
 		$text .= ' ' . sprintf( _x( 'and %s.', 'WP Admin Footer Text before link', 'wld-site' ), $link );
 
@@ -186,6 +190,34 @@ class Admin extends Modules {
 		}
 
 		return $actions;
+	}
+
+	/**
+	 * Blocks deactivation of this plugin for non-agency users, server-side.
+	 *
+	 * Covers single, bulk, REST and direct URL deactivation, which all check
+	 * the `deactivate_plugin` meta capability. WP-CLI does not check it.
+	 *
+	 * @param string[] $caps    Primitive capabilities required of the user.
+	 * @param string   $cap     Capability being checked.
+	 * @param int      $user_id The user ID.
+	 * @param array    $args    Adds context to the capability check (first item is the plugin).
+	 *
+	 * @return string[]
+	 */
+	public function block_deactivation_cap( $caps, $cap, $user_id, $args ): array {
+		$caps = (array) $caps;
+
+		if ( 'deactivate_plugin' === $cap &&
+			isset( $args[0] ) &&
+			$this->plugin_basename === $args[0] &&
+			$this->is_extra_option_enabled( 'disable_plugin_deactivation' ) &&
+			! Agency::is_member( (int) $user_id )
+		) {
+			return array( 'do_not_allow' );
+		}
+
+		return $caps;
 	}
 
 	/**

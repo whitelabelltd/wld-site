@@ -83,7 +83,7 @@ abstract class Modules {
 	protected function get_resource_version() : string {
 		if ( $this->is_local_env() ) {
 			try {
-				return random_int( 10, 1000 );
+				return (string) random_int( 10, 1000 );
 			} catch ( Exception $e ) {
 				return WLDS_VERSION;
 			}

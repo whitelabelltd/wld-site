@@ -12,55 +12,11 @@ if ( ! defined( 'WP_CLI' ) ) {
 	exit;
 }
 
-require_once ABSPATH . 'wp-admin/includes/user.php';
+require __DIR__ . '/bootstrap.php';
 
-$GLOBALS['wlds_test_failures'] = 0;
-
-/**
- * Logs a test result.
- *
- * @param bool   $condition Condition that must be true.
- * @param string $label     Test label.
- * @return void
- */
-function wlds_test_assert( bool $condition, string $label ): void {
-	if ( $condition ) {
-		WP_CLI::log( 'PASS: ' . $label );
-	} else {
-		WP_CLI::log( 'FAIL: ' . $label );
-		++$GLOBALS['wlds_test_failures'];
-	}
-}
-
-add_filter( 'wlds_agency_domains', fn() => array( 'agency.test' ) );
-
-// Remove leftovers from an aborted run.
-foreach ( array( 'wlds-member', 'wlds-client' ) as $wlds_login ) {
-	$wlds_user = get_user_by( 'login', $wlds_login );
-	if ( $wlds_user ) {
-		wp_delete_user( $wlds_user->ID );
-	}
-}
-
-$member_id = wp_insert_user(
-	array(
-		'user_login' => 'wlds-member',
-		'user_email' => 'member@agency.test',
-		'user_pass'  => wp_generate_password(),
-		'role'       => 'administrator',
-	)
-);
-$client_id = wp_insert_user(
-	array(
-		'user_login' => 'wlds-client',
-		'user_email' => 'client@client.test',
-		'user_pass'  => wp_generate_password(),
-		'role'       => 'administrator',
-	)
-);
-if ( is_wp_error( $member_id ) || is_wp_error( $client_id ) ) {
-	WP_CLI::error( 'Could not create test users.' );
-}
+$users     = wlds_test_users();
+$member_id = $users['member'];
+$client_id = $users['client'];
 
 $original = get_option( 'siteurl' );
 
@@ -123,11 +79,7 @@ try {
 	if ( get_option( 'siteurl' ) !== $original ) {
 		update_option( 'siteurl', $original );
 	}
-	wp_delete_user( $member_id );
-	wp_delete_user( $client_id );
+	wlds_test_cleanup();
 }
 
-if ( $GLOBALS['wlds_test_failures'] > 0 ) {
-	WP_CLI::error( $GLOBALS['wlds_test_failures'] . ' test(s) failed.' );
-}
-WP_CLI::success( 'All tests passed.' );
+wlds_test_finish();

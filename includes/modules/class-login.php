@@ -48,10 +48,8 @@ class Login extends Modules {
 		// Grab Error Codes.
 		$err_codes = $errors->get_error_codes();
 
-		// Invalid username or password.
-		if ( in_array( 'invalid_username', $err_codes, true ) ||
-			in_array( 'incorrect_password', $err_codes, true )
-		) {
+		// Invalid username, email or password, or lost-password lookup failure.
+		if ( array_intersect( array( 'invalid_username', 'incorrect_password', 'invalid_email', 'invalidcombo' ), $err_codes ) ) {
 			$error = $wld_site_error;
 		}
 

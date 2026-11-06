@@ -26,11 +26,19 @@ class Headers extends Modules {
 	}
 
 	/**
-	 * Set the X-Frame-Options header to 'SAMEORIGIN' to prevent clickjacking attacks
+	 * Set security headers: X-Frame-Options (clickjacking), X-Content-Type-Options and Referrer-Policy
 	 *
-	 * @param string $headers Headers.
+	 * @param array $headers Headers.
 	 */
 	public function maybe_set_frame_option_header( $headers ) {
+
+		// Safe defaults, never overriding a header that is already set.
+		if ( ! isset( $headers['X-Content-Type-Options'] ) ) {
+			$headers['X-Content-Type-Options'] = 'nosniff';
+		}
+		if ( ! isset( $headers['Referrer-Policy'] ) ) {
+			$headers['Referrer-Policy'] = 'strict-origin-when-cross-origin';
+		}
 
 		// Allow omission of this header.
 		if ( true === apply_filters( 'wlds_disable_x_frame_options', false ) ) {
@@ -38,7 +46,12 @@ class Headers extends Modules {
 		}
 
 		// Valid header values are `SAMEORIGIN` (allow iframe on same domain) | `DENY` (do not allow anywhere).
-		$headers['X-Frame-Options'] = apply_filters( 'wlds_x_frame_options', 'SAMEORIGIN' );
+		$frame_option = apply_filters( 'wlds_x_frame_options', 'SAMEORIGIN' );
+		$frame_option = is_string( $frame_option ) ? strtoupper( trim( $frame_option, " \t\n\r\0\x0B" ) ) : '';
+		if ( ! in_array( $frame_option, array( 'SAMEORIGIN', 'DENY' ), true ) ) {
+			$frame_option = 'SAMEORIGIN';
+		}
+		$headers['X-Frame-Options'] = $frame_option;
 		return $headers;
 	}
 

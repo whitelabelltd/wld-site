@@ -187,12 +187,19 @@ class Tools {
 			) {
 				// Loop through each domain we find.
 				foreach ( $file_data['agency_domains'] as $agency_domain ) {
+					// Skip anything that is not a string.
+					if ( ! is_string( $agency_domain ) ) {
+						continue;
+					}
 					// Lowercase the domain name.
 					$agency_domain = strtolower( $agency_domain );
 					// Remove URL Prefixes (if any) and strip all slashes.
 					$agency_domain = wp_unslash( str_replace( array( '@', 'http://', 'https://', 'www.' ), '', $agency_domain ) );
-					// Add it after sanitizing as a text field.
-					$settings['agency_domains'][] = sanitize_text_field( $agency_domain );
+					// Add it after sanitizing as a text field (skip empty).
+					$agency_domain = sanitize_text_field( $agency_domain );
+					if ( '' !== $agency_domain ) {
+						$settings['agency_domains'][] = $agency_domain;
+					}
 				}
 			}
 

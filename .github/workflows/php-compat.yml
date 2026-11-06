@@ -1,0 +1,53 @@
+name: PHP compatibility
+on:
+  pull_request:
+  push:
+    branches: [ master ]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint (PHP ${{ matrix.php }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: [ '8.0', '8.1', '8.2', '8.3', '8.4', '8.5' ]
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # v2.40.0
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          tools: none
+      - name: Lint every PHP file
+        shell: bash
+        run: |
+          set -o pipefail
+          # xargs exits non-zero (123) when any php -l fails, which fails the job.
+          find . -name '*.php' -not -path './vendor/*' -print0 | xargs -0 -n1 php -l
+
+  phpcompatibility:
+    name: PHPCompatibility (8.0+)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # v2.40.0
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: none
+      - name: Install PHPCompatibility
+        run: |
+          mkdir -p "$RUNNER_TEMP/phpcompat"
+          cd "$RUNNER_TEMP/phpcompat"
+          composer init --no-interaction --name=wld/phpcompat
+          composer config minimum-stability dev
+          composer config prefer-stable true
+          composer config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+          composer require --dev --no-interaction phpcompatibility/php-compatibility:dev-develop
+      - name: Run PHPCompatibility
+        run: |
+          "$RUNNER_TEMP/phpcompat/vendor/bin/phpcs" --standard=PHPCompatibility --runtime-set testVersion 8.0- wld-site.php includes

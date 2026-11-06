@@ -50,6 +50,7 @@ class Core {
 		$this->load_modules(
 			array(
 				'admin',
+				'agencyoptions',
 				'api',
 				'authors',
 				'dashboard',

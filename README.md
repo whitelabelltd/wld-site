@@ -151,13 +151,13 @@ There is 1 filter available for this
 
 ### client.json
 
-You can include the `client.json` file in the plugin root directory, with the needed data for the plugin to autoload this upon activating the plugin, then the file gets deleted.
+You can include the `client.json` file in the plugin root directory, with the needed data for the plugin to autoload this upon activating the plugin, then the file gets deleted. If the file is not valid JSON it is left in place so it can be fixed.
 
 *Sample client.json file*
 ```json
 {
   "disable_plugin_deactivation": true,
-  "agency_domains": [""],
+  "agency_domains": [],
   "support_email_to": "",
   "managed_by_name": "",
   "managed_by_url": "",

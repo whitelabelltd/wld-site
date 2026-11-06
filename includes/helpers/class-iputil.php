@@ -203,57 +203,49 @@ class IP {
 	}
 
 	/**
-	 * Determine whether the IPV6 address is within range.
-	 * @param string $ip is the IPV6 address in decimal format to check if its within the IP range created by the cloudflare IPV6 address, $range_ip.
-	 * @param string $range_ip converted to full IPV6 format.
+	 * Determine whether an IPv6 address is within a CIDR range.
 	 *
-	 * @return bool returns true if the IPV6 address, $ip,  is within the range from $range_ip.  False otherwise.
+	 * @param string $ip       The IPv6 address to check (textual form).
+	 * @param string $range_ip The CIDR range, e.g. 2400:cb00::/32. No prefix means a single address (/128).
+	 *
+	 * @return bool True if $ip is within the range, false otherwise (including invalid input).
 	 */
 	public static function ipv6_in_range( $ip, $range_ip ): bool {
-		$pieces      = explode( "/", $range_ip, 2 );
-		$left_piece  = $pieces[0];
-		$right_piece = $pieces[1];
-
-		// Extract out the main IP pieces
-		$ip_pieces     = explode( "::", $left_piece, 2 );
-		$main_ip_piece = $ip_pieces[0];
-		$last_ip_piece = $ip_pieces[1];
-
-		// Pad out the shorthand entries.
-		$main_ip_pieces = explode( ":", $main_ip_piece );
-		foreach ( $main_ip_pieces as $key => $val ) {
-			$main_ip_pieces[ $key ] = str_pad( $val, 4, "0", STR_PAD_LEFT );
+		if ( ! is_string( $ip ) || ! is_string( $range_ip ) ) {
+			return false;
 		}
 
-		// Create the first and last pieces that will denote the IPV6 range.
-		$first = $main_ip_pieces;
-		$last  = $main_ip_pieces;
-
-		// Check to see if the last IP block (part after ::) is set
-		$last_piece = "";
-		$size       = count( $main_ip_pieces );
-		if ( trim( $last_ip_piece ) != "" ) {
-			$last_piece = str_pad( $last_ip_piece, 4, "0", STR_PAD_LEFT );
-
-			// Build the full form of the IPV6 address considering the last IP block set
-			for ( $i = $size; $i < 7; $i ++ ) {
-				$first[ $i ] = "0000";
-				$last[ $i ]  = "ffff";
+		$pieces = explode( '/', $range_ip, 2 );
+		$prefix = 128;
+		if ( isset( $pieces[1] ) ) {
+			if ( '' === $pieces[1] || ! ctype_digit( $pieces[1] ) ) {
+				return false;
 			}
-			$main_ip_pieces[7] = $last_piece;
-		} else {
-			// Build the full form of the IPV6 address
-			for ( $i = $size; $i < 8; $i ++ ) {
-				$first[ $i ] = "0000";
-				$last[ $i ]  = "ffff";
-			}
+			$prefix = (int) $pieces[1];
+		}
+		if ( $prefix > 128 ) {
+			return false;
 		}
 
-		// Rebuild the final long form IPV6 address
-		$first    = self::ip2long6( implode( ":", $first ) );
-		$last     = self::ip2long6( implode( ":", $last ) );
-		$in_range = ( $ip >= $first && $ip <= $last );
+		// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- inet_pton() warns on invalid input.
+		$ip_bin = @inet_pton( $ip );
+		// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
+		$range_bin = @inet_pton( $pieces[0] );
+		if ( false === $ip_bin || false === $range_bin || 16 !== strlen( $ip_bin ) || 16 !== strlen( $range_bin ) ) {
+			return false;
+		}
 
-		return $in_range;
+		// Compare whole bytes first, then the remaining bits with a mask.
+		$full_bytes = intdiv( $prefix, 8 );
+		if ( substr( $ip_bin, 0, $full_bytes ) !== substr( $range_bin, 0, $full_bytes ) ) {
+			return false;
+		}
+		$remaining_bits = $prefix % 8;
+		if ( 0 === $remaining_bits ) {
+			return true;
+		}
+		$mask = ( 0xFF << ( 8 - $remaining_bits ) ) & 0xFF;
+
+		return ( ord( $ip_bin[ $full_bytes ] ) & $mask ) === ( ord( $range_bin[ $full_bytes ] ) & $mask );
 	}
 }
